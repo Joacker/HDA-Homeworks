@@ -5,9 +5,9 @@ import "gorm.io/gorm"
 type Users struct {
 	gorm.Model
 
-	id_user  int    `gorm:"not null"` // ID is the primary key
-	nombre   string `gorm:"not null"` // Title is the item title
-	apellido string `gorm:"not null"` // Description is the item description
-	email    string `gorm:"not null"` // Price is the item price
-	password string `gorm:"not null"` // Price is the item price
+	Id_user  int    //`gorm:"not null"` // ID is the primary key
+	Nombre   string //`gorm:"not null"` // Title is the item title
+	Apellido string //`gorm:"not null"` // Description is the item description
+	Email    string //`gorm:"not null"` // Price is the item price
+	Password string //`gorm:"not null"` // Price is the item price
 }
