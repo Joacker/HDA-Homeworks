@@ -33,12 +33,12 @@ services:
 
 
 ###################-CLIENTE-#########################   
-   cliente:
-    container_name: cliente
-    build: ./frontend
-    restart: always
-    ports:
-        - "5000:5000"
-    depends_on:
-        - postgres
+#    cliente:
+#     container_name: cliente
+#     build: ./frontend
+#     restart: always
+#     ports:
+#         - "5000:5000"
+#     depends_on:
+#         - postgres
 
