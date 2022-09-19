@@ -18,5 +18,5 @@ func GetEquiposHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetEquipoHandler(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Get Item"))
+	w.Write([]byte("Get Equipo"))
 }

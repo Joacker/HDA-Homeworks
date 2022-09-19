@@ -17,7 +17,7 @@ func main() {
 	r.HandleFunc("/users", routes.GetUsersHandler).Methods("GET")
 	r.HandleFunc("/users/{Id}", routes.GetUserHandler).Methods("GET")
 	r.HandleFunc("/equipos", routes.GetEquiposHandler).Methods("GET")
-	r.HandleFunc("/equpos/{Id}", routes.GetEquipoHandler).Methods("GET")
+	r.HandleFunc("/equipos/{Id}", routes.GetEquipoHandler).Methods("GET")
 
 	fmt.Println("Hello World 3")
 	http.ListenAndServe(":3000", r)
