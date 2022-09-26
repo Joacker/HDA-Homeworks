@@ -16,10 +16,9 @@ services:
     ports:
         - "5432:5432"
     environment:
-        - POSTGRESQL_USER=${POSTGRES_USER}
-        - POSTGRESQL_DATABASE=${POSTGRES_DB}
-        - ALLOW_EMPTY_PASSWORD=${HIDE_EMPTY_PASSWORD}
-        - POSTGRESQL_PASSWORD=${POSTGRES_PASSWORD}
+        - POSTGRESQL_USER=postgres
+        - POSTGRESQL_DATABASE=tarea1
+        - POSTGRESQL_PASSWORD=postgres
 
 ###################-SERVIDOR-#########################   
    servidor:

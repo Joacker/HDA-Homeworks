@@ -9,9 +9,9 @@ import (
 )
 
 func GetChampionsHandler(w http.ResponseWriter, r *http.Request) {
-	db.DBConnection()
+	//db.DBConnection()
 	var champions []models.Champions
-	db.DB.AutoMigrate(champions)
+	//db.DB.AutoMigrate(champions)
 	db.DB.Find(&champions)
 	json.NewEncoder(w).Encode(&champions)
 

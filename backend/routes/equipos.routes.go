@@ -9,9 +9,9 @@ import (
 )
 
 func GetEquiposHandler(w http.ResponseWriter, r *http.Request) {
-	db.DBConnection()
+	//db.DBConnection()
 	var equipos []models.Equipos
-	db.DB.AutoMigrate(equipos)
+	//db.DB.AutoMigrate(equipos)
 	db.DB.Find(&equipos)
 	json.NewEncoder(w).Encode(&equipos)
 
