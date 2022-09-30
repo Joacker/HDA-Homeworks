@@ -12,10 +12,10 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 
 	var users []models.Users
 	db.DB.AutoMigrate(users)
-	var equipos []models.Equipos
-	db.DB.AutoMigrate(equipos)
-	var champions []models.Champions
-	db.DB.AutoMigrate(champions)
+	var resenias []models.Resenias
+	db.DB.AutoMigrate(resenias)
+	var agents []models.Agents
+	db.DB.AutoMigrate(agents)
 
 	w.Write([]byte("Hello World3"))
 }

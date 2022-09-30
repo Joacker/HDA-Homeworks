@@ -12,12 +12,12 @@ func main() {
 
 	r := mux.NewRouter()
 	r.HandleFunc("/", routes.HomeHandler)
-	r.HandleFunc("/champions", routes.GetChampionsHandler).Methods("GET")
-	r.HandleFunc("/champions/{Id}", routes.GetChampionHandler).Methods("GET")
+	r.HandleFunc("/champions", routes.GetAgentsHandler).Methods("GET")
+	r.HandleFunc("/champions/{Id}", routes.GetAgentHandler).Methods("GET")
 	r.HandleFunc("/users", routes.GetUsersHandler).Methods("GET")
 	r.HandleFunc("/users/{Id}", routes.GetUserHandler).Methods("GET")
-	r.HandleFunc("/equipos", routes.GetEquiposHandler).Methods("GET")
-	r.HandleFunc("/equipos/{Id}", routes.GetEquipoHandler).Methods("GET")
+	r.HandleFunc("/equipos", routes.GetReseniasHandler).Methods("GET")
+	r.HandleFunc("/equipos/{Id}", routes.GetReseniaHandler).Methods("GET")
 
 	fmt.Println("Hello World 3")
 	http.ListenAndServe(":3000", r)
