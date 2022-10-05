@@ -9,13 +9,7 @@ import (
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	db.DBConnection()
-
-	var users []models.Users
-	db.DB.AutoMigrate(users)
-	var resenias []models.Resenias
-	db.DB.AutoMigrate(resenias)
-	var agents []models.Agents
-	db.DB.AutoMigrate(agents)
+	db.DB.AutoMigrate(models.Agents{}, models.Resenias{}, models.Users{})
 
 	w.Write([]byte("Hello World3"))
 }

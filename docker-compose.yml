@@ -10,7 +10,7 @@ services:
     image: docker.io/bitnami/postgresql:11
     restart: always
     volumes:
-        - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+         - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
     env_file:
         - db.env
     ports:
