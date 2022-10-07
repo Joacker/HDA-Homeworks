@@ -26,7 +26,7 @@ func GetUserHandler(w http.ResponseWriter, r *http.Request) {
 	//para extraer el id
 	//id := params["Id"]
 	//fmt.Println(params)
-	db.DB.First(&user, params["Email"])
+	db.DB.First(&user, params["Id"])
 	if user.Id == 0 {
 		w.WriteHeader(http.StatusNotFound)
 		json.NewEncoder(w).Encode("Usuario no encontrado")
@@ -72,13 +72,20 @@ func PostUserHandler(w http.ResponseWriter, r *http.Request) {
 	//w.Write([]byte("Post Usuario"))
 	var user models.Users
 	json.NewDecoder(r.Body).Decode(&user)
-	createUser := db.DB.Create(&user)
-	err := createUser.Error
-	if err != nil {
-		w.WriteHeader(http.StatusBadRequest) // 400
-		w.Write([]byte(err.Error()))
+	email := user.Email
+	db.DB.First(&user, "Email = ?", email)
+	if user.Id == 0 {
+		createUser := db.DB.Create(&user)
+		err := createUser.Error
+		if err != nil {
+			w.WriteHeader(http.StatusBadRequest) // 400
+			w.Write([]byte(err.Error()))
+		}
+		w.WriteHeader(http.StatusCreated) // 201
+		json.NewEncoder(w).Encode(&user)
+		return
 	}
-	json.NewEncoder(w).Encode(&user)
+	json.NewEncoder(w).Encode("Usuario ya registrado")
 }
 
 // Actualizar un usuario
