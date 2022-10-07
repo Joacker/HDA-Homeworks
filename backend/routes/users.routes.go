@@ -81,6 +81,12 @@ func PostUserHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(&user)
 }
 
+// Actualizar un usuario
+func UpdateUserHandler(w http.ResponseWriter, r *http.Request) {
+	//params := mux.Vars(r)
+	w.Write([]byte("Update Usuario"))
+}
+
 // Eliminar un usuario
 func DeleteUserHandler(w http.ResponseWriter, r *http.Request) {
 	//params := mux.Vars(r)
