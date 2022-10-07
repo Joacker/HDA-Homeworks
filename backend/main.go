@@ -16,6 +16,8 @@ func main() {
 	r.HandleFunc("/champions/{Id}", routes.GetAgentHandler).Methods("GET")
 	r.HandleFunc("/users", routes.GetUsersHandler).Methods("GET")
 	r.HandleFunc("/users/{Id}", routes.GetUserHandler).Methods("GET")
+	r.HandleFunc("/users", routes.PostUserHandler).Methods("POST")
+	r.HandleFunc("/users", routes.DeleteUserHandler).Methods("DELETE")
 	r.HandleFunc("/equipos", routes.GetReseniasHandler).Methods("GET")
 	r.HandleFunc("/equipos/{Id}", routes.GetReseniaHandler).Methods("GET")
 

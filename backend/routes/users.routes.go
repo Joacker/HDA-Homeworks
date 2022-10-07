@@ -23,7 +23,16 @@ func GetUserHandler(w http.ResponseWriter, r *http.Request) {
 
 // Crear un usuario
 func PostUserHandler(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Post Usuario"))
+	//w.Write([]byte("Post Usuario"))
+	var user models.Users
+	json.NewDecoder(r.Body).Decode(&user)
+	createUser := db.DB.Create(&user)
+	err := createUser.Error
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest) // 400
+		w.Write([]byte(err.Error()))
+	}
+	json.NewEncoder(w).Encode(&user)
 }
 
 // Eliminar un usuario
