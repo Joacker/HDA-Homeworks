@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html data-vm-ssr lang="en" data-vm="%7B%22lang%22:%7B%221%22:%22en%22%7D%7D">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+  <title>Valorant Agents</title>
+
+  <meta name="google-play-app" content="app-id=network.tracker.app" />
+  <meta name="apple-itunes-app" content="app-id=1287696482" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="msapplication-config" content="/public/browserconfig.xml" />
+  <meta name="msapplication-TileColor" content="#101921" />
+  <meta name="msapplication-TileImage" content="/public/icons/tile310.png" />
+
+  <meta data-vm="1" name="application-name" content="Valorant Tracker"><meta data-vm="1" name="theme-color" content="#0F1923"><meta data-vm="1" name="apple-mobile-web-app-title" content="Valorant Tracker"><meta data-vm="1" property="og:site_name" content="Valorant Tracker"><meta data-vm="1" name="google-site-verification" content="VfaBxCxbmP9F89tHWbmlNBwLqs9pfcYcoiORZTgQzC4"><meta data-vm="1" data-vmid="og:type" property="og:type" content="website"><meta data-vm="1" data-vmid="og:image" property="og:image" content="/public/icons/tile310.png"><meta data-vm="1" data-vmid="twitter:card" property="twitter:card" content="summary"><meta data-vm="1" data-vmid="twitter:site" property="twitter:site" content="@trackernetwork"><meta data-vm="1" data-vmid="description" name="description" property="og:description" content="Valorant Database look through all of Valorant&#x27;s Agents and see their abilities. Stats of the new agents coming soon.">
+
+  <link rel="icon" sizes="192x192" href="/public/icons/icon192.png" />
+  <link rel="apple-touch-icon" href="/public/icons/icon192.png" />
+  <link rel="manifest" href="/public/manifest.json">
+  <link rel="preconnect" href="https://sessions.bugsnag.com" crossorigin="use-credentials"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://imgsvc.trackercdn.com" />
+  <link rel="preconnect" href="https://trackercdn.com" />
+  <link rel="preconnect" href="https://trackerads.com" />
+  <link rel="dns-prefetch" href="https://account.tracker.gg" />
+
+  <!-- Preload ONLY latin character sets for our main fonts -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmEU9fBBc4.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu4mxK.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/rajdhani/v8/LDI2apCSOBg7S-QT7pa8FvOreec.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/rajdhani/v8/LDI2apCSOBg7S-QT7pb0EPOreec.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  <!-- <script type="text/javascript" src="cdvfile://localhost/assets/www/cordova.js"></script> -->
+  <script>
+    if (navigator.userAgent.indexOf('cordova') > -1) {
+      window.isTRNNative = true
+      window.isTRNMobile = true
+
+      var cordovaLoader = document.createElement('script')
+      cordovaLoader.src = 'cdvfile://localhost/assets/www/cordova.js'
+      document.head.appendChild(cordovaLoader)
+    }
+  </script>
+
+  <link data-vm="1" data-vmid="canonical" rel="canonical" href="https://tracker.gg/valorant/agents">
+  <style data-vm="1" data-vmid="css-vars" type="text/css">
+        :root {
+          --color-accent: #BFBDB6;
+--color-accent-lighten-20: hsl(46.69999999999999, 6.6%, 87.8%);
+--color-accent-secondary: undefined;
+--color-action: #FF4655;
+--color-action-lighten-2: hsl(355.1, 100%, 65%);
+--color-action-lighten-5: hsl(355.1, 100%, 66.9%);
+--color-action-lighten-12: hsl(355.1, 100%, 71.4%);
+--color-action-opacity-16: rgba(255, 70, 85, 0.16);
+--color-action-opacity-24: rgba(255, 70, 85, 0.24);
+--color-action-opacity-28: rgba(255, 70, 85, 0.28);
+--color-action-opacity-50: rgba(255, 70, 85, 0.5);
+--color-action-contrast: #efefef;
+--color-gradient-low-1: #141D26;
+--color-gradient-low-2: #1B2733;
+--color-gradient-high-1: #17255C;
+--color-gradient-high-2: #802634;
+--color-gradient-high-1-opacity-85: rgba(23, 37, 92, 0.85);
+--color-gradient-high-2-opacity-85: rgba(128, 38, 52, 0.85);
+--color-background: #0F141A;
+--color-background-opacity-50: rgba(15, 20, 26, 0.5);
+--color-surface-opacity: rgba(255, 255, 255, 0.16);
+--color-surface-1: #0F1923;
+--color-surface-1-opacity-50: rgba(15, 25, 35, 0.5);
+--color-surface-1-opacity-85: rgba(15, 25, 35, 0.85);
+--color-surface-2: #1b2733;
+--color-surface-2-lighten-3: hsl(210, 30.8%, 15.8%);
+--color-surface-2-opacity-50: rgba(27, 39, 51, 0.5);
+--color-surface-2-opacity-85: rgba(27, 39, 51, 0.85);
+--color-surface-3: #263747;
+--color-surface-3-lighten-5: hsl(209.10000000000002, 30.3%, 22.4%);
+--color-surface-3-opacity-50: rgba(38, 55, 71, 0.5);
+--color-surface-3-opacity-85: rgba(38, 55, 71, 0.85);
+--color-text-primary: #efefef;
+--color-text-secondary: #99ABBF;
+--color-text-dim: rgba(239, 239, 239, 0.75);
+--color-text-disabled: rgba(239, 239, 239, 0.5);
+--border-radius: 0.25rem;
+--home-hero-background-desktop-url: url("https://imgsvc.trackercdn.com/url/height(1000),quality(40)/https%3A%2F%2Ftrackercdn.com%2Fcdn%2Ftracker.gg%2Fvalorant%2Fimages%2Fvalorant-bg-neon.jpg/image.jpg");
+--home-hero-background-tablet-url: url("https://imgsvc.trackercdn.com/url/size(1080),fit(cover),quality(40)/https%3A%2F%2Ftrackercdn.com%2Fcdn%2Ftracker.gg%2Fvalorant%2Fimages%2Fvalorant-bg-neon.jpg/image.jpg");
+--home-hero-background-mobile-url: url("https://imgsvc.trackercdn.com/url/size(540),fit(cover),quality(30)/https%3A%2F%2Ftrackercdn.com%2Fcdn%2Ftracker.gg%2Fvalorant%2Fimages%2Fvalorant-bg-neon.jpg/image.jpg");
+--population-charts-background-desktop-url: url("https://imgsvc.trackercdn.com/url/height(1000),quality(40)/https%3A%2F%2Ftrackercdn.com%2Fcdn%2Ftracker.gg%2Fvalorant%2Fimages%2Fvalorant-bg-neon.jpg/image.jpg");
+--population-charts-background-tablet-url: url("https://imgsvc.trackercdn.com/url/size(1080),fit(cover),quality(40)/https%3A%2F%2Ftrackercdn.com%2Fcdn%2Ftracker.gg%2Fvalorant%2Fimages%2Fvalorant-bg-neon.jpg/image.jpg");
+--population-charts-background-mobile-url: url("https://imgsvc.trackercdn.com/url/size(540),fit(cover),quality(30)/https%3A%2F%2Ftrackercdn.com%2Fcdn%2Ftracker.gg%2Fvalorant%2Fimages%2Fvalorant-bg-neon.jpg/image.jpg");
+--color-game-bar-background: #141414;
+--color-main-nav-background: #0F1923;
+        }
+        </style>
+  
+  
+
+  <script>
+    var showAd = true;
+
+    var excludePatterns = [
+      /^\/overlays\/?.*$/,
+      /^\/.*?\/mobile\/?.*$/,
+      /^\/.*?\/app\/?.*$/
+    ]
+
+    var isExcludedLocation = excludePatterns.reduce(function (excluded, pattern) {
+      return excluded || pattern.test(location.pathname)
+    }, false)
+
+    if (isExcludedLocation) {
+      showAd = false;
+    }
+    if (showAd) {
+      var isPremium = false;
+      var profileCacheStr = localStorage.getItem('account.profileCache')
+      if (profileCacheStr) {
+        var profileCache = JSON.parse(profileCacheStr);
+        isPremium = profileCache.isPremium;
+      }
+
+      if (!isPremium) {
+
+        window.cpmstarskin = function() {
+          if (document.body) {
+              document.body.classList.add('skin-takeover');
+          } else {
+            document.addEventListener("DOMContentLoaded", function() {
+              document.body.classList.add('skin-takeover');
+            });
+          }
+        };
+      }
+    }
+  </script>
+<link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/runtime~app.cfe299277.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.195911529.4bb6b4825.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2859247374.163d9ccab.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.5861607.dfe39710e.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.895576494.1cc54a341.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3143254658.9357fc291.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3665215074.4d88d516e.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.1006258764.8983bde94.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3574576705.9e5176f1b.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2541854834.609cf857f.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.1180871136.7956ecf19.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.194596312.fa47f6ee1.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3377862948.06f2f3e9c.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.180579305.913cdc053.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.767020626.a7c0c8c27.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2509558727.24204e8c5.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.165396381.13ec3714c.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3408046358.c51e2527d.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.1824496410.69e53cc0c.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.833378784.b876d5f74.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2116492110.685028cb4.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.4255602998.d5b004ac4.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2217842790.c01a1fa9f.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2790113976.a17bb133b.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3945908192.3f14c269b.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.1164752937.01a9d0fa9.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.1280697751.95b5ec3a9.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3375868479.e9fd22d9e.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.1676318355.f9fc03555.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2280667984.73bd4891c.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2998981541.843dc78fc.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3996908920.111305c49.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.193405987.354b96a64.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3670589015.1e184750c.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2088379003.cd2388d7f.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/130.8ce59ed77.css" as="style"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendors~app.8ce59ed77.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/87.0e47e826a.css" as="style"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/app.0e47e826a.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/6.aaba76dd6.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/361.228fbd979.css" as="style"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/361.228fbd979.js" as="script"><link rel="stylesheet" href="https://trackercdn.com/static-files/trackergg/production/dist/130.8ce59ed77.css"><link rel="stylesheet" href="https://trackercdn.com/static-files/trackergg/production/dist/87.0e47e826a.css"><link rel="stylesheet" href="https://trackercdn.com/static-files/trackergg/production/dist/361.228fbd979.css"></head>
+
+<body >
+
+          </a></div></div> <!----></nav></div></div> <div class="trn-container" data-v-5ba02f11><div class="trn-content" data-v-5ba02f11><div class="no-ssr-placeholder" data-v-5ba02f11 data-v-5ba02f11></div> <main data-v-5ba02f11><div class="no-ssr-placeholder" data-v-bdacb8b4 data-v-bdacb8b4 data-v-5ba02f11></div> <!----> <div class="trn-sticky-content-top" data-v-5ba02f11><div class="no-ssr-placeholder"></div></div> <div class="no-ssr-placeholder" data-v-72bbbb76 data-v-72bbbb76 data-v-5ba02f11></div> <div class="portal-drawers vue-portal-target" data-v-5ba02f11></div> <div data-v-381bc93e data-v-5ba02f11><div class="trn-tabs__nav" data-v-381bc93e data-v-e6180e18><ul class="trn-tabs" data-v-e6180e18><li data-v-e6180e18></li> <li data-v-e6180e18></li> <li data-v-e6180e18></li> <li data-v-e6180e18></li></ul></div> <div class="no-card-margin site-container" data-v-381bc93e><ol itemscope="itemscope" itemtype="https://schema.org/BreadcrumbList" class="breadcrumb breadcrumb--highlight" data-v-381bc93e data-v-cd206dfe>                    </ol> <h1 data-v-381bc93e>Agents <span data-v-381bc93e>for Valorant</span></h1> <div class="trn-grid trn-grid--three" data-v-381bc93e><a href="astra.html" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/astra_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Astra</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Astra</span></a><a href="breach.html" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/breach_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Breach</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Breach</span></a><a href="/valorant/agents/brimstone" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/brimstone_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Brimstone</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Brimstone</span></a><a href="/valorant/agents/chamber" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/chamber_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Chamber</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Chamber</span></a><a href="/valorant/agents/cypher" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/cypher_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Cypher</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Cypher</span></a><a href="/valorant/agents/fade" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/fade_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Fade</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Fade</span></a><a href="/valorant/agents/jett" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/jett_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Jett</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Jett</span></a><a href="/valorant/agents/kayo" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/kayo_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>KAY/O</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // KAY/O</span></a><a href="/valorant/agents/killjoy" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/killjoy_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Killjoy</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Killjoy</span></a><a href="/valorant/agents/neon" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/neon_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Neon</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Neon</span></a><a href="/valorant/agents/omen" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/omen_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Omen</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Omen</span></a><a href="/valorant/agents/phoenix" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/phoenix_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Phoenix</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Phoenix</span></a><a href="/valorant/agents/raze" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/raze_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Raze</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Raze</span></a><a href="/valorant/agents/reyna" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/reyna_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Reyna</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Reyna</span></a><a href="/valorant/agents/sage" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/sage_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Sage</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Sage</span></a><a href="/valorant/agents/skye" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/skye_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Skye</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Skye</span></a><a href="/valorant/agents/sova" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/sova_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Sova</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Sova</span></a><a href="/valorant/agents/viper" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/viper_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Viper</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Viper</span></a><a href="/valorant/agents/yoru" class="valorant-card" data-v-381bc93e><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/yoru_portrait.png" class="valorant-card__image" data-v-381bc93e> <span class="valorant-card__name" data-v-381bc93e>Yoru</span> <span class="valorant-card__vertical" data-v-381bc93e>Agent // Yoru</span></a></div></div></div> <div class="trn-sticky-content-bottom" data-v-5ba02f11><div class="no-ssr-placeholder"></div></div></main> <div class="mobile-promo" data-v-252f141b data-v-5ba02f11 data-v-5ba02f11><div class="mobile-promo__container" data-v-252f141b>  </div></div>
+  
+
+  <script src="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor/oidc-client-1.11.5.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"755249f00a02227d","token":"74bbfac95baf4f8f876f5c08d45d8ec3","version":"2022.8.1","si":100}' crossorigin="anonymous"></script>
+</body>
+
+</html>
