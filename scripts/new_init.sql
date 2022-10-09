@@ -15,7 +15,7 @@ CREATE TABLE Agents (
 );
 
 CREATE TABLE Resenias (
-  Id int PRIMARY KEY,
+  Id_resenia int PRIMARY KEY,
   Id_agente int,
   Resenia varchar,
   Id_user int

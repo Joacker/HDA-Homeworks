@@ -15,7 +15,7 @@ func GetUsersHandler(w http.ResponseWriter, r *http.Request) {
 	var users []models.Users
 	db.DB.Find(&users)
 	json.NewEncoder(w).Encode(&users)
-
+	fmt.Printf("w: %v\n", w)
 }
 
 // Obtener un usuario
