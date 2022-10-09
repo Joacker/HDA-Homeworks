@@ -1,0 +1,86 @@
+ .u-section-1 {
+  background-image: url("images/VALORANT_YR1_ArticleHero_16_9.jpeg");
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 923px;
+}
+
+.u-section-1 .u-form-1 {
+  height: 215px;
+  width: 661px;
+  margin: 598px auto 60px;
+}
+
+.u-section-1 .u-form-group-1 {
+  width: 100%;
+}
+
+.u-section-1 .u-label-1 {
+  font-weight: 700;
+}
+
+.u-section-1 .u-input-1 {
+  font-weight: 700;
+  box-shadow: 2px 2px 8px 0px rgba(128,128,128,1);
+  font-size: 1.25rem;
+}
+
+.u-section-1 .u-form-group-2 {
+  width: 100%;
+}
+
+.u-section-1 .u-label-2 {
+  font-weight: 700;
+}
+
+.u-section-1 .u-input-2 {
+  font-weight: 700;
+  box-shadow: 2px 2px 8px 0px rgba(128,128,128,1);
+  font-size: 1.25rem;
+}
+
+.u-section-1 .u-form-group-3 {
+  width: 100%;
+}
+
+.u-section-1 .u-btn-1 {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  width: 47%;
+  background-image: none;
+  padding: 9px 0 11px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 761px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 583px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 437px;
+  }
+
+  .u-section-1 .u-form-1 {
+    width: 540px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 275px;
+  }
+
+  .u-section-1 .u-form-1 {
+    width: 340px;
+  }
+}
