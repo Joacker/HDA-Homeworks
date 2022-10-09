@@ -56,3 +56,5 @@ INSERT INTO users(Email, Password) VALUES ('jose.lopez@yahoo.com', '1234');
 INSERT INTO users(Email, Password) VALUES ('ana.martinez@hotmail.com', '1234');
 
 INSERT INTO resenias(Email, Name, Comment) VALUES('maria.gomez@gmail.com', 'Astra', 'I have no idea if shes good si not');
+INSERT INTO resenias(Email, Name, Comment) VALUES('pedro.rodriguez@hotmail.com', 'Astra', 'I have no idea if shes good si not');
+INSERT INTO resenias(Email, Name, Comment) VALUES('pedro.rodriguez@hotmail.com', 'Viper', 'I have no idea if shes good si not');

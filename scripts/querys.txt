@@ -1,0 +1,5 @@
+Query1: Tus reseñas.
+select * from resenias, agents where resenias.email = 'maria.gomez@gmail.com' and resenias.name = 'Astra' AND resenias.name = agents.name;
+
+Query2: Todas las reseñas.
+select * from resenias, agents where resenias.name = 'Astra' AND resenias.name = agents.name;
