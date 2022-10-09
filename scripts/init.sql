@@ -15,10 +15,10 @@
   );
 
   CREATE TABLE Resenias (
-    Id_resenia SERIAL PRIMARY KEY,
-    Id_agent INT,
-    Id_user INT,
-    Resenia varchar,
+    Id SERIAL PRIMARY KEY,
+    Email varchar,
+    Name varchar,
+    Comment varchar
   );
 
   CREATE TABLE Users (
@@ -27,9 +27,9 @@
     Password varchar
   );
 
-ALTER TABLE Resenias ADD FOREIGN KEY (Id_agente) REFERENCES Agentes (Id);
+--ALTER TABLE Resenias ADD FOREIGN KEY (Id_agente) REFERENCES Agentes (Id);
 
-ALTER TABLE Resenias ADD FOREIGN KEY (Id_user) REFERENCES Usuarios (Id);
+--ALTER TABLE Resenias ADD FOREIGN KEY (Id_user) REFERENCES Usuarios (Id);
 
 INSERT INTO agents(Name, Role, Descripcion, Skill1, Skill2, Skill3, Ulti, Url_image) VALUES('Astra', 'CONTROLLER', 'Ghanaian Agent Astra harnesses the energies of the cosmos to reshape battlefields to her whim. With full command of her astral form and a talent for deep strategic foresight, she is always eons ahead of her enemy is next move.', 'Nova Pulse', 'Nebula / Dissipate', 'Gravity Well', 'Astral Form / Cosmic Divide', 'https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/astra_portrait.png');
 INSERT INTO agents(Name, Role, Descripcion, Skill1, Skill2, Skill3, Ulti, Url_image) VALUES('Breach', 'INITIATOR', 'The bionic Swede Breach fires powerful, targeted kinetic blasts to aggressively clear a path through enemy ground. The damage and disruption he inflicts ensures no fight is ever fair.', 'Fault Line', 'Flashpoint', 'Rolling Thunder', 'Fault Line / Fault Line','https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/breach_portrait.png');
@@ -55,4 +55,4 @@ INSERT INTO users(Email, Password) VALUES ('pedro.rodriguez@hotmail.com', '1234'
 INSERT INTO users(Email, Password) VALUES ('jose.lopez@yahoo.com', '1234');
 INSERT INTO users(Email, Password) VALUES ('ana.martinez@hotmail.com', '1234');
 
-INSERT INTO resenias(Id_agent, Id_user, Resenia) VALUES(5,2,'I have no idea if shes good si not');
+INSERT INTO resenias(Email, Name, Comment) VALUES('maria.gomez@gmail.com', 'Astra', 'I have no idea if shes good si not');
