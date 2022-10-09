@@ -49,7 +49,7 @@ func PostReseniaHandler(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(&resenia)
 		return
 	}
-	json.NewEncoder(w).Encode("Resenia ya registrada ya registrado")
+	json.NewEncoder(w).Encode("Resenia ya registrada")
 }
 
 func GetReseniaHandler(w http.ResponseWriter, r *http.Request) {
