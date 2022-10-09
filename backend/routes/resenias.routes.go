@@ -5,15 +5,21 @@ import (
 	"net/http"
 
 	"github.com/Joacker/Ayu1/backend/db"
-	"github.com/Joacker/Ayu1/backend/models"
 )
 
 func GetReseniasHandler(w http.ResponseWriter, r *http.Request) {
 	//db.DBConnection()
-	var resenias []models.Resenias
+	type Result struct {
+		AgentName string `json:"Agent_Name"`
+	}
+	var results Result
+	json.NewDecoder(r.Body).Decode(&results)
+	agent := results.AgentName
+	//select * from resenias, agents where resenias.name = 'Astra' AND resenias.name = agents.name;
+	db.DB.Select("*").Where("Resenia.Name = ? AND Resenia.Name = Agents.Name", agent).Table("Resenia", "Agents")
 	//db.DB.AutoMigrate(equipos)
-	db.DB.Find(&resenias)
-	json.NewEncoder(w).Encode(&resenias)
+	db.DB.Find(&results)
+	json.NewEncoder(w).Encode(&results)
 
 }
 

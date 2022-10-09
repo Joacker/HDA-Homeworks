@@ -13,22 +13,7 @@ import (
 // Obtener todos los usuarios
 func GetUsersHandler(w http.ResponseWriter, r *http.Request) {
 	var users []models.Users
-	type result struct {
-		Id         int
-		Email      string
-		Password   string
-		Id_resenia int
-		Id_user    int
-		Id_agent   int
-		Resenia    string
-	}
-	var resultado []result
-	//db.DB.Find(&users)
-
-	db.DB.Table("Usuarios").Select("*").
-		Joins(`inner join Resenias on Resenias.Id_user = Usuarios.Id`).
-		Scan(&resultado)
-
+	db.DB.Find(&users)
 	json.NewEncoder(w).Encode(&users)
 	fmt.Printf("w: %v\n", w)
 }
