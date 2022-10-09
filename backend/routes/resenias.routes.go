@@ -17,6 +17,7 @@ func GetReseniasHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	//var results Result_resenia
 	var resenias []models.Resenias
+	//variable para los agentes
 	var results Result_resenia
 	json.NewDecoder(r.Body).Decode(&results)
 	agent := results.AgentName
@@ -27,6 +28,28 @@ func GetReseniasHandler(w http.ResponseWriter, r *http.Request) {
 	//db.DB.Find(&results)
 	json.NewEncoder(w).Encode(&resenias)
 
+}
+
+// Crear un usuario
+func PostReseniaHandler(w http.ResponseWriter, r *http.Request) {
+	//w.Write([]byte("Post Usuario"))
+	var resenia models.Resenias
+	json.NewDecoder(r.Body).Decode(&resenia)
+	email := resenia.Email
+	name := resenia.Name
+	db.DB.Where("Email = ? AND Name = ?", email, name).First(&resenia)
+	if resenia.Id == 0 {
+		createResenia := db.DB.Create(&resenia)
+		err := createResenia.Error
+		if err != nil {
+			w.WriteHeader(http.StatusBadRequest) // 400
+			w.Write([]byte(err.Error()))
+		}
+		w.WriteHeader(http.StatusCreated) // 201
+		json.NewEncoder(w).Encode(&resenia)
+		return
+	}
+	json.NewEncoder(w).Encode("Resenia ya registrada ya registrado")
 }
 
 func GetReseniaHandler(w http.ResponseWriter, r *http.Request) {

@@ -25,6 +25,7 @@ func main() {
 	r.HandleFunc("/users", routes.PostUserHandler).Methods("POST")
 	r.HandleFunc("/users", routes.DeleteUserHandler).Methods("DELETE")
 	r.HandleFunc("/resenias", routes.GetReseniasHandler).Methods("POST")
+	r.HandleFunc("/postresenias", routes.PostReseniaHandler).Methods("POST")
 	r.HandleFunc("/equipos/{Id}", routes.GetReseniaHandler).Methods("GET")
 
 	fmt.Println("Hello World 3")
