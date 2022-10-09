@@ -15,15 +15,17 @@ func GetReseniasHandler(w http.ResponseWriter, r *http.Request) {
 		UserEmail   string `json:"User_Email"`
 		AgentComent string `json:"Agent_Coment"`
 	}
+	//var results Result_resenia
+	var resenias []models.Resenias
 	var results Result_resenia
-	var resenias models.Resenias
-	json.NewDecoder(r.Body).Decode(&resenias)
-	agent := resenias.Name
+	json.NewDecoder(r.Body).Decode(&results)
+	agent := results.AgentName
 	//select * from resenias, agents where resenias.name = 'Astra' AND resenias.name = agents.name;
-	db.DB.Table("Resenias").Select("Agents.Name, Resenias.Email, Resenias.Comment").Joins("left join Agents on Resenias.Name = Agents.Name").Where("Resenias.Name = ?", agent).Scan(&results)
+	//db.DB.Select("Agents.Name, Resenias.Email, Resenias.Comment").Joins("inner join Agents on Resenias.Name = Agents.Name").Where("Resenias.Name = ?", agent).Table("Resenias").Scan(&results)
+	db.DB.Select("Resenias.Name, Resenias.Email, Resenias.Comment").Where("Resenias.Name = ?", agent).Find(&resenias)
 	//db.DB.AutoMigrate(equipos)
 	//db.DB.Find(&results)
-	json.NewEncoder(w).Encode(&results)
+	json.NewEncoder(w).Encode(&resenias)
 
 }
 
