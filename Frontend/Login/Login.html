@@ -66,42 +66,42 @@
         
 
       function loginCharge(){
-        let username=document.getElementById("name-6797");
-        let password=document.getElementById("email-6797");
-        console.log(username.value)
-        console.log(password.value)
-          const ip = 'http://localhost:3000'
-          const query = fetch(ip+'/users3',{
-            method:'POST',
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              "email": username.value,
-              "password": password.value
-            }),
-          }).then((response) => response.json())
-          .then(async (json) => {
-            console.log(json)
-            if(json == "Usuario no encontrado"){
-              console.log('not here')
-              alert('Usuario no encontrado')
-              //cb()
-            } else {
-              console.log('here')
-              //https://www.youtube.com/watch?v=oWxI7CA5WmY
-              window.location.href = "https://www.youtube.com/watch?v=oWxI7CA5WmY";
-              //cb({ message:json.message })
-            }
-          }).catch((error) => {
-            console.error(error);
-          })
-          
-        }
-       
-        //ejecutar funcion  cada cierto tiempo
+      let username=document.getElementById("name-6797");
+      let password=document.getElementById("email-6797");
+      console.log(username.value)
+      console.log(password.value)
+        const ip = 'http://localhost:3000'
+        const query = fetch(ip+'/users3',{
+          method:'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            "email": username.value,
+            "password": password.value
+          }),
+        }).then((response) => response.json())
+        .then(async (json) => {
+          console.log(json)
+          if(json == "Usuario no encontrado"){
+            console.log('not here')
+            alert('Usuario no encontrado')
+            //cb()
+          } else {
+            console.log('here')
+            //https://www.youtube.com/watch?v=oWxI7CA5WmY
+            window.location.href = "../Templates/index.html";
+            //cb({ message:json.message })
+          }
+        }).catch((error) => {
+          console.error(error);
+        })
         
-      </script>
+      }
+     
+      //ejecutar funcion  cada cierto tiempo
+      
+    </script>
   
 </body></html>
