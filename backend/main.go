@@ -28,7 +28,7 @@ func main() {
 	r.HandleFunc("/postresenias", routes.PostReseniaHandler).Methods("POST")
 	r.HandleFunc("/putresenias", routes.PutReseniaHandler).Methods("PUT")
 	r.HandleFunc("/deleteresenias", routes.DeleteReseniaHandler).Methods("DELETE")
-	r.HandleFunc("/equipos/{Id}", routes.GetReseniaHandler).Methods("GET")
+	r.HandleFunc("/allresenias", routes.GetReseniaHandler).Methods("GET")
 
 	fmt.Println("Hello World 3")
 	http.ListenAndServe(":3000", handlers.CORS(headers, methods, origins)(r))

@@ -86,5 +86,8 @@ func DeleteReseniaHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetReseniaHandler(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Get Resenia"))
+	var resenia []models.Resenias
+	//db.DB.AutoMigrate(champions)
+	db.DB.Find(&resenia)
+	json.NewEncoder(w).Encode(&resenia)
 }
