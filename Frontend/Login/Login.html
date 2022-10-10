@@ -54,17 +54,7 @@
     
     
     
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-design" target="_blank">
-        <span>Free Website Design</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.best" target="_blank">
-        <span>Website Builder</span>
-      </a>. 
-    </section>
+    
 
     <script>
         
@@ -75,9 +65,11 @@
 
         
 
-        function loginCharge(){
+      function loginCharge(){
         let username=document.getElementById("name-6797");
         let password=document.getElementById("email-6797");
+        console.log(username.value)
+        console.log(password.value)
           const ip = 'http://localhost:3000'
           const query = fetch(ip+'/users3',{
             method:'POST',
@@ -86,12 +78,22 @@
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              "email": username,
-              "password": password
+              "email": username.value,
+              "password": password.value
             }),
           }).then((response) => response.json())
           .then(async (json) => {
             console.log(json)
+            if(json == "Usuario no encontrado"){
+              console.log('not here')
+              alert('Usuario no encontrado')
+              //cb()
+            } else {
+              console.log('here')
+              //https://www.youtube.com/watch?v=oWxI7CA5WmY
+              window.location.href = "https://www.youtube.com/watch?v=oWxI7CA5WmY";
+              //cb({ message:json.message })
+            }
           }).catch((error) => {
             console.error(error);
           })
