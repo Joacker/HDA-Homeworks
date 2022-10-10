@@ -24,7 +24,8 @@
   CREATE TABLE Users (
     Id SERIAL PRIMARY KEY,
     Email varchar,
-    Password varchar
+    Password varchar,
+    Logged_in INT
   );
 
 --ALTER TABLE Resenias ADD FOREIGN KEY (Id_agente) REFERENCES Agentes (Id);
@@ -49,11 +50,11 @@ INSERT INTO agents(Name, Role, Descripcion, Skill1, Skill2, Skill3, Ulti, Url_im
 INSERT INTO agents(Name, Role, Descripcion, Skill1, Skill2, Skill3, Ulti, Url_image) VALUES('KAY/O', 'INITIATOR', 'KAY/O is a machine of war built for a single purpose: neutralizing radiants. His power to suppress enemy abilities cripples his opponents capacity to fight back, securing him and his allies the ultimate edge.', 'Overdrive', 'Disassemble', 'Reassemble', 'Reassemble / Reassemble','https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/kayo_portrait.png');
 INSERT INTO agents(Name, Role, Descripcion, Skill1, Skill2, Skill3, Ulti, Url_image) VALUES('CHAMBER', 'SENTINEL', 'Well dressed and well armed, French weapons designer Chamber expels aggressors with deadly precision. He leverages his custom arsenal to hold the line and pick off enemies from afar, with a contingency built for every plan.','Rendezvous', 'Trademark', 'Headhunter', 'Tour De Force','https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/chamber_portrait.png');
 
-INSERT INTO users(Email, Password) VALUES ('juan.perez@gmail.com', '1234');
-INSERT INTO users(Email, Password) VALUES ('maria.gomez@gmail.com', '1234');
-INSERT INTO users(Email, Password) VALUES ('pedro.rodriguez@hotmail.com', '1234');
-INSERT INTO users(Email, Password) VALUES ('jose.lopez@yahoo.com', '1234');
-INSERT INTO users(Email, Password) VALUES ('ana.martinez@hotmail.com', '1234');
+INSERT INTO users(Email, Password, Logged_in) VALUES ('juan.perez@gmail.com', '1234',0);
+INSERT INTO users(Email, Password, Logged_in) VALUES ('maria.gomez@gmail.com', '1234',0);
+INSERT INTO users(Email, Password, Logged_in) VALUES ('pedro.rodriguez@hotmail.com', '1234',0);
+INSERT INTO users(Email, Password, Logged_in) VALUES ('jose.lopez@yahoo.com', '1234',0);
+INSERT INTO users(Email, Password, Logged_in) VALUES ('ana.martinez@hotmail.com', '1234',0);
 
 INSERT INTO resenias(Email, Name, Comment) VALUES('maria.gomez@gmail.com', 'ASTRA', 'I have no idea if shes good si not');
 INSERT INTO resenias(Email, Name, Comment) VALUES('pedro.rodriguez@hotmail.com', 'ASTRA', 'I have no idea if shes good si not');
