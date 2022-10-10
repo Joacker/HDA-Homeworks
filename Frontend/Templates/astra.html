@@ -614,7 +614,7 @@ When Cosmic Divide is charged, use SECONDARY FIRE in Astral Form to begin aiming
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"7552e6cabf7121c1","token":"74bbfac95baf4f8f876f5c08d45d8ec3","version":"2022.8.1","si":100}' crossorigin="anonymous"></script>
 <script>
     
-    user=document.getElementById("username");
+    let user=document.getElementById("username");
     
     
     
@@ -625,16 +625,48 @@ When Cosmic Divide is charged, use SECONDARY FIRE in Astral Form to begin aiming
         "Content-Type": "application/json",
         'Accept': 'application/json'} 
       }).then(response=>response.json())
-      .then(data => {
-        console.log(data);
-        console.log(data[0].Email);
+      .then(async data => {
+        //console.log(data);
+        //console.log(data[0].Email);
         user.innerText=data[0].Email;
+        user.value=data[0].Email;
       })
 
     }
 let name=document.getElementsByClassName("agent__name")[0].innerText;
-console.log(name.split("FOR")[0]+"Y JOACO SE AMAN");
-GetLogeado(user)
+console.log(name.split(" FOR")[0]+"Y JOACO SE AMAN");
+window.onload = GetLogeado(user);
+
+let loading = false;
+
+function GetUsersNotRelated(){
+   console.log(name.split(" FOR")[0])
+   console.log(user.innerText);
+   (async) => {
+     if (!loading) {
+         loading = true;
+        fetch("http://localhost:3000/allresenias",{
+            method:"POST",
+            headers:{
+                "Content-Type": "application/json",
+                'Accept': 'application/json',
+                },
+                body:JSON.stringify({
+                email: user.innerText,
+                name: name.split(" FOR")[0],
+                }),
+            }).then(response=>response.json())
+            .then(async (json) => {
+                console.log(json);
+                loading = false;
+            }).catch(err => {
+                console.log(err)
+            });
+        }
+    }
+ };
+ //GetUsersNotRelated()
+ GetUsersNotRelated()
 </script>
 </body>
 
