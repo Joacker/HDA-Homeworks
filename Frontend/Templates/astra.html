@@ -642,9 +642,6 @@ let loading = false;
 function GetUsersNotRelated(){
    console.log(name.split(" FOR")[0])
    console.log(user.innerText);
-   (async) => {
-     if (!loading) {
-         loading = true;
         fetch("http://localhost:3000/allresenias",{
             method:"POST",
             headers:{
@@ -656,17 +653,17 @@ function GetUsersNotRelated(){
                 name: name.split(" FOR")[0],
                 }),
             }).then(response=>response.json())
-            .then(async (json) => {
+            .then( (json) => {
                 console.log(json);
-                loading = false;
+                
             }).catch(err => {
                 console.log(err)
             });
-        }
+        
     }
- };
+ 
  //GetUsersNotRelated()
- GetUsersNotRelated()
+ window.setTimeout(GetUsersNotRelated, 2000);
 </script>
 </body>
 
