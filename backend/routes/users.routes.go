@@ -51,7 +51,7 @@ func GetUserHandler2(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(&user)
 }
 
-// Obtener un usuario
+// Obtener un usuario para login
 func GetUserHandler3(w http.ResponseWriter, r *http.Request) {
 	//w.Write([]byte("Post Usuario"))
 	var user models.Users
@@ -64,6 +64,7 @@ func GetUserHandler3(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode("Usuario no encontrado")
 		return
 	}
+	db.DB.Model(&user).Update("Logged_in", 1)
 	json.NewEncoder(w).Encode(&user)
 }
 
@@ -88,6 +89,14 @@ func PostUserHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode("Usuario ya registrado")
 }
 
+// Encontrar logueados
+func Logeados(w http.ResponseWriter, r *http.Request) {
+	var users []models.Users
+	db.DB.Find(&users, "Logged_in = ?", 1)
+	json.NewEncoder(w).Encode(&users)
+	fmt.Printf("w: %v\n", w)
+}
+
 // Actualizar un usuario
 func UpdateUserHandler(w http.ResponseWriter, r *http.Request) {
 	//params := mux.Vars(r)
@@ -98,4 +107,18 @@ func UpdateUserHandler(w http.ResponseWriter, r *http.Request) {
 func DeleteUserHandler(w http.ResponseWriter, r *http.Request) {
 	//params := mux.Vars(r)
 	w.Write([]byte("Delete Usuario"))
+}
+
+func Logout_db(w http.ResponseWriter, r *http.Request) {
+	var user models.Users
+	json.NewDecoder(r.Body).Decode(&user)
+	email := user.Email
+	db.DB.First(&user, "Email = ?", email)
+	if user.Id == 0 {
+		w.WriteHeader(http.StatusNotFound)
+		json.NewEncoder(w).Encode("Usuario no encontrado")
+		return
+	}
+	db.DB.Model(&user).Update("Logged_in", 0)
+	json.NewEncoder(w).Encode(&user)
 }
