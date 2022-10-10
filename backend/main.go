@@ -12,9 +12,11 @@ import (
 func main() {
 
 	r := mux.NewRouter()
+
 	headers := handlers.AllowedHeaders([]string{"X-Request-Width", "Content-Type", "Authorization"})
 	methods := handlers.AllowedMethods([]string{"GET", "HEAD", "POST", "PUT", "OPTIONS", "DELETE"})
 	origins := handlers.AllowedOrigins([]string{"*"})
+
 	r.HandleFunc("/", routes.HomeHandler)
 	r.HandleFunc("/champions", routes.GetAgentsHandler).Methods("GET")
 	r.HandleFunc("/champions/{Id}", routes.GetAgentHandler).Methods("GET")
@@ -30,7 +32,8 @@ func main() {
 	r.HandleFunc("/postresenias", routes.PostReseniaHandler).Methods("POST")
 	r.HandleFunc("/putresenias", routes.PutReseniaHandler).Methods("PUT")
 	r.HandleFunc("/deleteresenias", routes.DeleteReseniaHandler).Methods("DELETE")
-	r.HandleFunc("/allresenias", routes.GetReseniaHandler).Methods("GET")
+	r.HandleFunc("/miresenia", routes.GetReseniaHandler).Methods("POST")
+	r.HandleFunc("/allresenias", routes.GetAllReseniasHandler).Methods("POST")
 
 	fmt.Println("Hello World 3")
 	http.ListenAndServe(":3000", handlers.CORS(headers, methods, origins)(r))

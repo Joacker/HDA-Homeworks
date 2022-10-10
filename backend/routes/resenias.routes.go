@@ -86,8 +86,27 @@ func DeleteReseniaHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetReseniaHandler(w http.ResponseWriter, r *http.Request) {
-	var resenia []models.Resenias
-	//db.DB.AutoMigrate(champions)
-	db.DB.Find(&resenia)
-	json.NewEncoder(w).Encode(&resenia)
+	//w.Write([]byte("Get Resenia"))
+	var resenia models.Resenias
+	json.NewDecoder(r.Body).Decode(&resenia)
+	email := resenia.Email
+	name := resenia.Name
+	db.DB.Where("Email = ? AND Name = ?", email, name).First(&resenia)
+	if resenia.Id != 0 {
+		json.NewEncoder(w).Encode(&resenia)
+		return
+	}
+	json.NewEncoder(w).Encode("No se encontro Resenia")
+}
+
+// Traer todos las resenias menos la mia
+func GetAllReseniasHandler(w http.ResponseWriter, r *http.Request) {
+	//w.Write([]byte("Get Resenia"))
+	var resenia models.Resenias
+	var resenias []models.Resenias
+	json.NewDecoder(r.Body).Decode(&resenia)
+	email := resenia.Email
+	name := resenia.Name
+	db.DB.Where("name = ? AND NOT email = ?", name, email).Find(&resenias)
+	json.NewEncoder(w).Encode(&resenias)
 }
