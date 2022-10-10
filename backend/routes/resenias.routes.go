@@ -52,6 +52,24 @@ func PostReseniaHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode("Resenia ya registrada")
 }
 
+func PutReseniaHandler(w http.ResponseWriter, r *http.Request) {
+	//w.Write([]byte("Put Resenia"))
+	//variable de body
+	var resenia models.Resenias
+	json.NewDecoder(r.Body).Decode(&resenia)
+	email := resenia.Email
+	name := resenia.Name
+	comment := resenia.Comment
+	db.DB.Where("Email = ? AND Name = ?", email, name).First(&resenia)
+	if resenia.Id != 0 {
+		resenia.Comment = comment
+		db.DB.Save(&resenia)
+		json.NewEncoder(w).Encode(&resenia)
+		return
+	}
+	json.NewEncoder(w).Encode("No se encontro Resenia")
+}
+
 func GetReseniaHandler(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Get Resenia"))
 }
