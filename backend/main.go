@@ -22,6 +22,8 @@ func main() {
 	r.HandleFunc("/users/{Id}", routes.GetUserHandler).Methods("GET")
 	r.HandleFunc("/users2", routes.GetUserHandler2).Methods("GET")
 	r.HandleFunc("/users3", routes.GetUserHandler3).Methods("POST")
+	r.HandleFunc("/logout", routes.Logout_db).Methods("POST")
+	r.HandleFunc("/logeados", routes.Logeados).Methods("GET")
 	r.HandleFunc("/users", routes.PostUserHandler).Methods("POST")
 	r.HandleFunc("/users", routes.DeleteUserHandler).Methods("DELETE")
 	r.HandleFunc("/resenias", routes.GetReseniasHandler).Methods("POST")
