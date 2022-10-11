@@ -6,14 +6,10 @@ COPY /Login /usr/local/apache2/htdocs/
 
 COPY /Templates /usr/local/apache2/htdocs/
 
-FROM httpd:2.4
+FROM nginx:latest
 
-COPY --from=builder  /Frontend  /var/cache/httpd
-
-COPY --from=builder  /usr/local/  /usr/local/
-
-COPY --from=builder  /usr/local/apache2/htdocs/   /usr/local/apache2/htdocs/
+COPY --from=builder /usr/local/apache2/htdocs/ /usr/share/nginx/html/
 
 EXPOSE 80
 
-CMD ["httpd","-D" ,"FOREGROUND"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
