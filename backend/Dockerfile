@@ -17,4 +17,4 @@ FROM frolvlad/alpine-glibc
 COPY --from=builder /backend .
 
 
-CMD ["./main"]
+CMD [ "./main" ]
