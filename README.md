@@ -69,6 +69,12 @@ Response:
 }
 ```
 
+En caso de que el usuario no se encuentre registrado, el response vendría a ser otro, similar a lo que se verá a continuación:
+```json
+"Usuario no encontrado"
+```
+
+
 Ruta con datos del back pero ahora cobre una interfaz.
 
 ```sh
@@ -117,3 +123,23 @@ Body, para este caso es necesario tanto atributo de nombre de agente y correo el
 	"email":"pedro2.rodriguez@hotmail.com"
 }
 ```
+En donde el response le responderá en caso de que se encuentre la resenia ya registrada o no.
+
+En caso de no estar, el response vendría a ser el siguiente:
+```json
+"No se encontro Resenia"
+```
+Caso que el usuario ya haya registrado alguna reseña, el response vendría a ser el siguiente:
+```json
+{
+	"ID": 0,
+	"CreatedAt": "0001-01-01T00:00:00Z",
+	"UpdatedAt": "0001-01-01T00:00:00Z",
+	"DeletedAt": null,
+	"Id": 1,
+	"Email": "maria.gomez@gmail.com",
+	"Name": "ASTRA",
+	"Comment": "Mi main es la mejor del juego nasheee"
+}
+```
+
