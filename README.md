@@ -152,3 +152,35 @@ Ruta usada para traer todas la resenias que no son pertenecientes al usuario per
 http://localhost:3000/allresenias
 ```
 
+El body de entrada, puede ser el siguiente:
+```json
+{
+	"email":"maria.gomez@gmail.com",
+	"name":"ASTRA"
+}
+```
+Su response para este caso es el siguiente:
+```json
+[
+	{
+		"ID": 0,
+		"CreatedAt": "0001-01-01T00:00:00Z",
+		"UpdatedAt": "0001-01-01T00:00:00Z",
+		"DeletedAt": null,
+		"Id": 2,
+		"Email": "pedro.rodriguez@hotmail.com",
+		"Name": "ASTRA",
+		"Comment": "ASTRA es la mejor agente del juego"
+	},
+	{
+		"ID": 0,
+		"CreatedAt": "2022-10-15T23:01:13.803913Z",
+		"UpdatedAt": "2022-10-15T23:01:13.803913Z",
+		"DeletedAt": null,
+		"Id": 4,
+		"Email": "juan.perez@gmail.com",
+		"Name": "ASTRA",
+		"Comment": "asd"
+	}
+]
+```
