@@ -239,3 +239,28 @@ El body contiene la siguiente estructura. . .
 ```
 
 Deleteresenia [DELETE]:
+
+El método por http fue de utilidad para borrar la reseña del usuario, siendo parte del conjunto de funciones en la interfaz de usuario.
+
+El body tendría la siguiente forma:
+```json
+{
+	"name":"ASTRA",
+	"email":"maria.gomez@gmail.com"
+}
+```
+Y el response devolvería lo siguiente:
+```json
+{
+	"ID": 0,
+	"CreatedAt": "0001-01-01T00:00:00Z",
+	"UpdatedAt": "2022-10-15T23:23:50.332811Z",
+	"DeletedAt": "2022-10-15T23:34:15.976707982Z",
+	"Id": 1,
+	"Email": "maria.gomez@gmail.com",
+	"Name": "ASTRA",
+	"Comment": "asd3qwuoeqwueoiqwe"
+}
+```
+De igual forma cabe hacer mención de que como se está trabajando con Go, no borra o actualiza directamente los datos de las tablas, más bien cambia unos estados de nombre "UpdatedAt" y "DeletedAt".
+
