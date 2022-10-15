@@ -3,8 +3,8 @@
   <br>
 </h1>
 
-<h1 align="center">Vagorant Agent Reviews</h2>
-<h3 align="center">Go and JQuery Deploy for High Disponibility Subject</h3>
+<h1 align="center">CRUD Vagorant Agent Reviews</h2>
+<h3 align="center">Docker, Go and JQuery Deploy for High Disponibility Subject</h3>
 <h5 align="center">Made by Brian Castro & Joaquín Fernández.</h5>
 
 <p align="center"><img src="https://img.shields.io/github/downloads/heym1ke/Assist/total.svg?style=for-the-badge&color=f71d51" alt="Downloads"></p>
@@ -203,3 +203,39 @@ El body debería de contener lo siguiente. . .
 }
 ```
 
+El response corresponde a:
+```json
+{
+	"ID": 0,
+	"CreatedAt": "2022-10-15T23:01:13.803913628Z",
+	"UpdatedAt": "2022-10-15T23:01:13.803913628Z",
+	"DeletedAt": null,
+	"Id": 4,
+	"Email": "juan.perez@gmail.com",
+	"Name": "ASTRA",
+	"Comment": "asd"
+}
+```
+Y en caso de que ya tenga una reseña agregada, solo podrá editar y borrar la reseña.
+
+En caso de error el response es:
+```json
+"Resenia ya registrada"
+```
+
+Putresenia [PUT]:
+
+Esta ruta fue de utilidad para el proceso de cambio de datos o actualización de la reseña dado un agente en específico.
+```sh
+http://localhost:3000/putresenias
+```
+El body contiene la siguiente estructura. . .
+```json
+{
+	"name":"ASTRA",
+	"email":"maria.gomez@gmail.com",
+	"comment":"asd3qwuoeqwueoiqwe"
+}
+```
+
+Deleteresenia [DELETE]:
