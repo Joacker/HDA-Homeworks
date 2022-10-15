@@ -56,6 +56,6 @@ INSERT INTO users(Email, Password, Logged_in) VALUES ('pedro.rodriguez@hotmail.c
 INSERT INTO users(Email, Password, Logged_in) VALUES ('jose.lopez@yahoo.com', '1234',0);
 INSERT INTO users(Email, Password, Logged_in) VALUES ('ana.martinez@hotmail.com', '1234',0);
 
-INSERT INTO resenias(Email, Name, Comment) VALUES('maria.gomez@gmail.com', 'ASTRA', 'I have no idea if shes good si not');
-INSERT INTO resenias(Email, Name, Comment) VALUES('pedro.rodriguez@hotmail.com', 'ASTRA', 'I have no idea if shes good si not');
+INSERT INTO resenias(Email, Name, Comment) VALUES('maria.gomez@gmail.com', 'ASTRA', 'Mi main es la mejor del juego nasheee');
+INSERT INTO resenias(Email, Name, Comment) VALUES('pedro.rodriguez@hotmail.com', 'ASTRA', 'ASTRA es la mejor agente del juego');
 INSERT INTO resenias(Email, Name, Comment) VALUES('pedro.rodriguez@hotmail.com', 'VIPER', 'I have no idea if shes good si not');

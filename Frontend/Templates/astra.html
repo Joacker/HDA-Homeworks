@@ -518,7 +518,7 @@ When Cosmic Divide is charged, use SECONDARY FIRE in Astral Form to begin aiming
   <br>
   <br>
   
-  <div class="area-comentar">
+  <div class="area-comentar" style="display: block;" >
       <p id="username"></p>
       
       <form action="#" method="post" class="inputs-comentarios">
@@ -532,80 +532,26 @@ When Cosmic Divide is charged, use SECONDARY FIRE in Astral Form to begin aiming
           </div>
       </form>
   </div>
-  <div class="publicacion-realizada">
-      <div class="usuario-publico">
-          
-          <div class="contenido-publicacion">
-              <h4>Carolina de la valle</h4>
-              
-          </div>
-          <div class="menu-comentario">
-              <i class="fas fa-pen"></i>
-              <ul class="menu">
-                  <li><a href="">Editar</a></li>
-                  <li><a href="">Eliminar</a></li>
-              </ul>
-          </div>
-      </div>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores aliquam possimus, doloremque repellat assumenda ipsam magni ducimus, dolorem explicabo</p>
-      
-      
-  </div>
-  <div class="publicacion-realizada">
-      <div class="usuario-publico">
-          
-          <div class="contenido-publicacion">
-              <h4 >Carolina de la valle</h4>
-              
-          </div>
-          <div class="menu-comentario">
-              <i class="fas fa-pen"></i>
-              <ul class="menu">
-                  <li><a href="">Editar</a></li>
-                  <li><a href="">Eliminar</a></li>
-              </ul>
-          </div>
-      </div>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores aliquam possimus, doloremque repellat assumenda ipsam magni ducimus, dolorem explicabo</p>
-      
-      
-  </div><div class="publicacion-realizada">
-      <div class="usuario-publico">
-          
-          <div class="contenido-publicacion">
-              <h4>Carolina de la valle</h4>
-              
-          </div>
-          <div class="menu-comentario">
-              <i class="fas fa-pen"></i>
-              <ul class="menu">
-                  <li><a href="">Editar</a></li>
-                  <li><a href="">Eliminar</a></li>
-              </ul>
-          </div>
-      </div>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores aliquam possimus, doloremque repellat assumenda ipsam magni ducimus, dolorem explicabo</p>
-      
-      
-  </div>
-  
-<div class="publicacion-realizada">
-      <div class="usuario-publico">
-          
-          <div class="contenido-publicacion">
-              <h4>Carolina de la valle</h4>
-              
-          </div>
-          <div class="menu-comentario">
-              <i class="fas fa-pen"></i>
-              <ul class="menu">
-                  <li><a href="">Editar</a></li>
-                  <li><a href="">Eliminar</a></li>
-              </ul>
-          </div>
-      </div>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores aliquam possimus, doloremque repellat assumenda ipsam magni ducimus, dolorem explicabo</p>
-      
+  <div class="publicacion-realizada" style="display: none;">
+    <div class="usuario-publico">
+        <div class="contenido-publicacion">
+            <h4 id="nombrelogeado"></h4>
+            
+        </div>
+        <div class="menu-comentario">
+            <i class="fas fa-pen"></i>
+            <ul class="menu">
+                <li><a href="">Editar</a></li>
+                <li><a href="">Eliminar</a></li>
+            </ul>
+        </div>
+    </div>
+    <p id="comentariologeado"></p>
+    
+    
+</div>
+
+
       
   </section></div>  </footer>
 
@@ -639,6 +585,51 @@ window.onload = GetLogeado(user);
 
 let loading = false;
 
+
+function GetUserRelated(){
+    console.log(name.split(" FOR")[0])
+   console.log(user.innerText);
+        fetch("http://localhost:3000/miresenia",{
+            method:"POST",
+            headers:{
+                "Content-Type": "application/json",
+                'Accept': 'application/json',
+                },
+                body:JSON.stringify({
+                email: user.innerText,
+                //email:"juan.perez",
+                name: name.split(" FOR")[0],
+                }),
+            }).then(response=>response.json())
+            .then( (json) => {
+
+                if(json =="No se encontro Resenia"){
+
+                }
+                else{
+                    comentario =document.querySelector(".publicacion-realizada")
+                    comentario.style.display="block"
+                    caja=document.querySelector(".area-comentar")
+                    caja.style.display="none"
+                    usuario=document.getElementById('nombrelogeado')
+                    usuario.innerText=json.Email
+                    comentario=document.getElementById('comentariologeado')
+                    comentario.innerText=json.Comment
+                    console.log(json)
+                }
+            }).catch(err => {
+                console.log(err)
+                
+            });
+        }
+
+
+
+
+
+
+
+
 function GetUsersNotRelated(){
    console.log(name.split(" FOR")[0])
    console.log(user.innerText);
@@ -654,16 +645,38 @@ function GetUsersNotRelated(){
                 }),
             }).then(response=>response.json())
             .then( (json) => {
-                console.log(json);
+                for (let i = 0; i < json.length; i++) {
+                const newElement = document.createElement("div");
+                newElement.className="publicacion-realizada";
+                const newElement2 = document.createElement("div");
+                newElement2.className="usuario-publico";
+                const newElement3 = document.createElement("div");
+                newElement3.className="contenido-publicacion";
+                const newElement4 = document.createElement("h4");
+                newElement4.textContent=json[i]['Email'];
+                const newElement11 = document.createElement("p");
+                newElement11.textContent=json[i]['Comment'];
+                newElement3.appendChild(newElement4);
+                newElement2.appendChild(newElement3);
+                newElement.appendChild(newElement2);
+                newElement.appendChild(newElement11);
+                document.querySelector(".contenedor-comentarios").appendChild(newElement);
+            }
+                
                 
             }).catch(err => {
                 console.log(err)
             });
-        
     }
  
  //GetUsersNotRelated()
- window.setTimeout(GetUsersNotRelated, 2000);
+
+ window.setTimeout(GetUserRelated, 300);
+ window.setTimeout(GetUsersNotRelated, 400);
+
+
+
+ 
 </script>
 </body>
 
