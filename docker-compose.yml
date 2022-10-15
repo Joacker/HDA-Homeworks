@@ -10,16 +10,12 @@ services:
     image: docker.io/bitnami/postgresql:11
     restart: always
     env_file:
-        - ./.env
+        - db.env
     volumes:
         - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
         - "5433:5432"
-    environment:
-        - POSTGRESQL_USER=POSTGRESQL_USER
-        - POSTGRESQL_DATABASE=POSTGRESQL_DATABASE
-        - POSTGRESQL_PASSWORD=POSTGRESQL_PASSWORD
-
+    
 ###################-SERVIDOR-#########################   
    servidor:
     container_name: servidor
