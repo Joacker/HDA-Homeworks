@@ -1,5 +1,357 @@
 <!DOCTYPE html>
 <html data-vm-ssr lang="en" data-vm="%7B%22lang%22:%7B%221%22:%22en%22%7D%7D">
+  <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+
+    /*=====================================
+    reset estilos
+    no es necesario que copies esto
+    =====================================*/
+    
+    html {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        line-height: 1.4;
+    }
+    
+    
+    * {
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+    body {
+        color: #d60d0d;
+        font-family: "Arial", Segoe UI, Tahoma, sans-serifl, Helvetica Neue, Helvetica;
+        width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1rem;
+        
+    }
+    
+    /*=====================================
+    estilos de la utilidad
+    Copiar esto
+    =====================================*/
+    .contenedor-comentarios {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .contenedor-comentarios img {
+        width: 100%;
+    }
+    
+    .area-comentar {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin-bottom: 1.5rem;
+        padding: 18px;
+        background-color: #152025;
+        box-shadow: 0 0 5px 2px rgba(0, 0, 0, .1);
+        border-radius: 12px;
+    }
+    
+    .comentarios-usuarios {
+        width: calc(100% - 2.5rem);
+    }
+    
+    .contenedor-comentarios a {
+        text-decoration: none;
+    }
+    
+    .comentar-publicacion .avatar,
+    .publicacion-realizada .usuario-publico .avatar,
+    .contenedor-comentarios .comentario-principal-usuario .avatar,
+    .area-comentar .avatar {
+        display: flex;
+        width: 65px;
+        height: 65px;
+        background-color: #F4F4F4;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    .comentarios-usuarios .nombre-usuario {
+        font-weight: bold;
+        margin-right: .5rem;
+        color: inherit;
+    }
+    /* botones comentar */
+    .boton-subir-archivo {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .boton-subir-archivo input[type="file"] {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+    
+    .boton-file,
+    .boton-enviar {
+        display: inline-block;
+        border: 0;
+        background-color: #374D71;
+        padding: 7px 15px;
+        margin-right: .5rem;
+        color: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color ease-in 200ms;
+    }
+    
+    .boton-file:hover,
+    .boton-enviar:hover {
+        background-color: #4C6FA7;
+    }
+    
+    /* fin */
+    .contenedor-comentarios .comentario-principal-usuario .comentario,
+    .area-comentar .inputs-comentarios {
+        flex-grow: 1;
+        flex-basis: 0;
+        margin-left: .5rem;
+    }
+    
+    .area-comentar .inputs-comentarios {
+        margin-left: 1rem;
+    }
+    
+    .contenedor-comentarios .comentario-principal-usuario .texto,
+    .area-comentar .inputs-comentarios .area-comentario {
+        border: 0;
+        background-color: whitesmoke;
+        color: black;
+        display: block;
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: .5rem;
+    }
+    
+    .botones-comentario span.tiempo-comentario {
+        font-size: 0.8rem !important;
+        color: #9F9F9F;
+        margin-left: .25rem;
+    }
+    
+    .area-comentar .inputs-comentarios .area-comentario {
+        padding: 12px 15px;
+    }
+    
+    .area-comentar .inputs-comentarios .botones-comentar {
+        display: flex;
+    }
+    
+    /* comentarios de usuario */
+    .comentarios-usuarios .comentario-principal-usuario {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .comentarios-usuarios .usuario-comentario {
+        width: 100%;
+        display: block;
+        margin-bottom: 0.75rem;
+        position: relative;
+    }
+    
+    .menu-comentario {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: #152025;
+        border-radius: 50%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    
+    .comentarios-usuarios .usuario-comentario .menu-comentario {
+        top: 5px;
+        right: -15px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, .4);
+    }
+    
+    .comentarios-usuarios .usuario-comentario:hover .menu-comentario {
+        display: flex;
+    }
+    
+    .publicacion-realizada .menu-comentario {
+        display: flex;
+        right: 0;
+    }
+    
+    .menu-comentario .menu {
+        list-style: none;
+        position: absolute;
+        right: 100%;
+        background-color: #fff;
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, .2);
+        border-radius: 8px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all ease-in 200ms;
+    }
+    
+    .menu-comentario:hover .menu {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .menu-comentario .menu a {
+        display: block;
+        padding: 7px 15px;
+        color: inherit;
+    }
+    
+    .menu-comentario .menu a:hover {
+        background-color: #E1E1E1;
+    }
+    
+    .publicacion-realizada .usuario-publico .avatar,
+    .comentarios-usuarios .comentario-principal-usuario .avatar {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .comentarios-usuarios .comentario-principal-usuario .texto {
+        padding: 10px 15px;
+        width: auto;
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: .25rem;
+        font-size: 0.9rem;
+        position: relative;
+        padding-right: 1.65rem;
+        
+    }
+    
+    .comentarios-usuarios .comentario-principal-usuario .comentar-comentario {
+        width: 100%;
+        display: flex;
+    }
+    
+    .comentarios-usuarios .comentar-publicacion input[type="text"] {
+        border: 0;
+        background-color: #000000;
+        color: #000000;
+        flex-grow: 1;
+        flex-basis: 0;
+        padding: 8px 10px;
+        font-size: .9rem;
+        border-radius: 8px;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+    
+    .botones-comentario {
+        display: block;
+    }
+    
+    .botones-comentario button {
+        display: inline-block;
+        border: 0;
+        padding: 3px 8px;
+        font-size: .8rem;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    
+    .botones-comentario button:hover {
+        background-color:grey;
+    }
+    
+    .comentar-publicacion .avatar,
+    .contenedor-sub-comentarios .comentario-principal-usuario .avatar {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .boton-enviar i,
+    .boton-file i,
+    .boton-puntuar i,
+    .boton-responder i {
+        margin-right: .5rem;
+    }
+    
+    /* publicacion realizada */
+    .publicacion-realizada {
+        margin-bottom: 1.5rem;
+    }
+    
+    .publicacion-realizada .usuario-publico {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: .5rem;
+        position: relative;
+    }
+    
+    .publicacion-realizada .usuario-publico .contenido-publicacion {
+        margin-left: 1rem;
+    }
+    
+    .comentar-publicacion {
+        display: flex;
+        width: 100%;
+    }
+    
+    .comentar-publicacion .comentar-comentario {
+        flex-grow: 1;
+        flex-basis: 0;
+        display: flex;
+        align-items: center;
+    }
+    
+    .publicacion-realizada p {
+        margin-bottom: 0.5rem;
+        font-size: 0.9em;
+    }
+    
+    .archivo-publicado img {
+        position: relative;
+        width: 100%;
+        border-radius: 8px;
+    }
+    
+    .publicacion-realizada .contenido-publicacion ul {
+        list-style: none;
+        font-size: 0.8em;
+        color: #1e1a1a;
+    }
+    </style>
+    <style>
+      .mensaje a {
+          color: inherit;
+          margin-right: .5rem;
+          display: inline-block;
+      }
+      .mensaje a:hover {
+          color: #309B76;
+          transform: scale(1.4)
+      }
+      </style>
 
 <head>
   <meta charset="utf-8" />
@@ -142,14 +494,337 @@
 <link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/runtime~app.d6f47f810.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.195911529.353345250.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2859247374.ed051d481.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.5861607.be3de19cb.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.895576494.793d91b4e.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3143254658.951f5f9ef.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3665215074.118694f2e.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.1006258764.2dfc0fdda.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3574576705.d5e5052e7.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2541854834.2ae31b8cb.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.1180871136.c38c2cf14.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.194596312.042e3aed4.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3377862948.b1d3d1718.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.180579305.5b2ea44f8.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.767020626.316dbdd23.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2509558727.24204e8c5.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.165396381.b89ce8a68.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3408046358.9b3cc8347.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.1824496410.71293d0b7.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2116492110.685028cb4.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.4255602998.d355b2b39.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2217842790.4199a1313.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2790113976.a9684ce89.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3945908192.d22672fc0.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.1164752937.618ce5ad9.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.1280697751.a59232bc9.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3375868479.e9fd22d9e.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.1676318355.3add1f617.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2280667984.579bc1ab9.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2998981541.9b500aabb.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3996908920.7ddbb9c89.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.193405987.8661643f7.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.3670589015.6a6c51d27.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor.2088379003.e85295c18.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/129.31e8cc97f.css" as="style"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/vendors~app.31e8cc97f.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/87.47db44d5b.css" as="style"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/app.47db44d5b.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/6.aaba76dd6.js" as="script"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/250.a7f15a444.css" as="style"><link rel="preload" href="https://trackercdn.com/static-files/trackergg/production/dist/js/250.a7f15a444.js" as="script"><link rel="stylesheet" href="https://trackercdn.com/static-files/trackergg/production/dist/129.31e8cc97f.css"><link rel="stylesheet" href="https://trackercdn.com/static-files/trackergg/production/dist/87.47db44d5b.css"><link rel="stylesheet" href="https://trackercdn.com/static-files/trackergg/production/dist/250.a7f15a444.css"></head>
 
 <body >
+  <a  onclick="logout()" class="btn btn-info btn-lg">
+    <span class="glyphicon glyphicon-log-out"></span> Log out
+  </a>
 </div></div> <div class="agent-grid" data-v-510f7e8c><div class="agent" data-v-510f7e8c><div class="agent__stage" data-v-510f7e8c><div data-v-510f7e8c><img src="https://trackercdn.com/cdn/tracker.gg/valorant/db/agents/cypher_portrait.png" data-v-510f7e8c></div></div> <div class="agent__details" data-v-510f7e8c><h1 class="agent__name" data-v-510f7e8c>Cypher <span class="agent__sub" data-v-510f7e8c>for Valorant</span></h1> <span class="agent__class" data-v-510f7e8c>Sentinel</span> <p class="agent__description" data-v-510f7e8c>The Moroccan information broker, Cypher is a one-man surveillance network who keeps tabs on the enemy's every move. No secret is safe. No maneuver goes unseen. Cypher is always watching.</p> <div class="agent__guides" data-v-510f7e8c><div class="guide-tile" data-v-01693cd3 data-v-510f7e8c><!----> <div class="guide-tile__preview" data-v-01693cd3> <!----></div> <div class="guide-tile__badges" data-v-01693cd3></div> <!----> <!----></div><div class="guide-tile" data-v-01693cd3 data-v-510f7e8c><!----> <div class="guide-tile__preview" data-v-01693cd3> <div class="guide-tile__ability" data-v-01693cd3>
     </div></div> <div class="guide-tile__badges" data-v-01693cd3></div> <!----> <!----></div></div> <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" data-v-510f7e8c></path></svg></a></div></div> <div class="abilities" data-v-510f7e8c><div class="ability" data-v-510f7e8c><div class="trn-grid trn-grid--small" data-v-510f7e8c><img src="https://titles.trackercdn.com/valorant-api/agents/117ed9e3-49f3-6512-3ccf-0cada7e3823b/abilities/ability1/displayicon.png" alt="Cyber Cage Icon" class="ability__icon" data-v-510f7e8c></div> <div data-v-510f7e8c><span class="ability__name" data-v-510f7e8c><span class="ability__key" data-v-510f7e8c>Q</span>Cyber Cage</span> <p class="ability__description" data-v-510f7e8c>INSTANTLY toss the cyber cage in front of Cypher. ACTIVATE to create a zone that blocks vision and plays an audio cue when enemies pass through it</p></div></div><div class="ability" data-v-510f7e8c><div class="trn-grid trn-grid--small" data-v-510f7e8c><img src="https://titles.trackercdn.com/valorant-api/agents/117ed9e3-49f3-6512-3ccf-0cada7e3823b/abilities/ability2/displayicon.png" alt="Spycam Icon" class="ability__icon" data-v-510f7e8c></div> <div data-v-510f7e8c><span class="ability__name" data-v-510f7e8c><span class="ability__key" data-v-510f7e8c>E</span>Spycam</span> <p class="ability__description" data-v-510f7e8c>EQUIP a spycam. FIRE to place the spycam at the targeted location. RE-USE this ability to take control of the camera's view. While in control of the camera, FIRE to shoot a marking dart. This dart will reveal the location of any player struck by the dart.</p></div></div><div class="ability" data-v-510f7e8c><div class="trn-grid trn-grid--small" data-v-510f7e8c><img src="https://titles.trackercdn.com/valorant-api/agents/117ed9e3-49f3-6512-3ccf-0cada7e3823b/abilities/grenade/displayicon.png" alt="Trapwire Icon" class="ability__icon" data-v-510f7e8c></div> <div data-v-510f7e8c><span class="ability__name" data-v-510f7e8c><span class="ability__key" data-v-510f7e8c>C</span>Trapwire</span> <p class="ability__description" data-v-510f7e8c>EQUIP a trapwire. FIRE to place a destructible and covert tripwire at the targeted location, creating a line that spans between the placed location and the wall opposite. Enemy players who cross a tripwire will be tethered, revealed, and dazed after a short period if they do not destroy the device in time. This ability can be picked up to be REDEPLOYED.</p></div></div><div class="ability" data-v-510f7e8c><div class="trn-grid trn-grid--small" data-v-510f7e8c><img src="https://titles.trackercdn.com/valorant-api/agents/117ed9e3-49f3-6512-3ccf-0cada7e3823b/abilities/ultimate/displayicon.png" alt="Neural Theft Icon" class="ability__icon" data-v-510f7e8c></div> <div data-v-510f7e8c><span class="ability__name" data-v-510f7e8c><span class="ability__key" data-v-510f7e8c>X</span>Neural Theft</span> <p class="ability__description" data-v-510f7e8c>INSTANTLY use on a dead enemy player in your crosshairs to reveal the location of all living enemy players.</p></div></div></div> <div class="insights" data-v-510f7e8c><div class="insights__header" data-v-510f7e8c><div class="insights__header--title" data-v-510f7e8c><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 31.981" class="insights__header--icon" data-v-510f7e8c data-v-510f7e8c><path d="M28.133 8.479A5 5 0 0026.8 4.098 4.616 4.616 0 0024 2.77 4.3 4.3 0 0020.8.114 4.671 4.671 0 0016 1.84 4.671 4.671 0 0011.2.114 5.17 5.17 0 007.867 2.77a4.616 4.616 0 00-2.8 1.328 4.91 4.91 0 00-1.2 4.382A4.726 4.726 0 000 13.127a4.628 4.628 0 001.067 2.921A7.016 7.016 0 000 19.633a6.583 6.583 0 005.6 6.506v.133a5.679 5.679 0 005.733 5.714A5.269 5.269 0 0016 29.459a5.565 5.565 0 004.667 2.527 5.651 5.651 0 005.6-5.71 6.558 6.558 0 004.667-10.091A4.628 4.628 0 0032 13.259a4.744 4.744 0 00-3.867-4.78zm-16.8 21.507a3.779 3.779 0 01-3.867-3.851 3.7 3.7 0 011.067-2.649L7.2 22.156a6.535 6.535 0 00-1.333 1.992 4.734 4.734 0 01-4.133-4.647 4.954 4.954 0 01.667-2.39 3.925 3.925 0 002.133.531v-1.727a2.788 2.788 0 110-5.577 2.821 2.821 0 012.133.8L8 9.807a4.9 4.9 0 00-2.133-1.2A3.065 3.065 0 016.4 5.425a2.909 2.909 0 014 0l1.333-1.328a2.921 2.921 0 00-1.866-1.062A2.608 2.608 0 0111.6 1.973a2.852 2.852 0 013.467 2.788v3.851a3.718 3.718 0 00-2.8-1.062v1.859a2.728 2.728 0 012.8 2.788v2.789H9.333v1.859h5.733v2.788a2.728 2.728 0 01-2.8 2.788v1.859a5.041 5.041 0 002.8-.929v2.788a3.749 3.749 0 01-3.733 3.847zM26 24.28a4.078 4.078 0 00-1.333-1.994l-1.334 1.33a3.7 3.7 0 011.067 2.656 3.735 3.735 0 11-7.467 0v-2.786a5.041 5.041 0 002.8.929v-1.861a2.728 2.728 0 01-2.8-2.788v-2.789h5.6v-1.859h-5.6v-2.921a2.728 2.728 0 012.8-2.788V7.55a5.041 5.041 0 00-2.8.929v-3.85A2.852 2.852 0 0120.4 1.84 2.655 2.655 0 0122 2.902a5.6 5.6 0 00-1.867 1.2l1.333 1.328a2.854 2.854 0 014.667 3.054A5.81 5.81 0 0024 9.807l1.333 1.328a2.719 2.719 0 012-.8 2.842 2.842 0 012.933 2.788 2.763 2.763 0 01-2.933 2.788v1.859a4.4 4.4 0 002.267-.531 4.954 4.954 0 01.667 2.39A4.974 4.974 0 0126 24.28z" data-v-510f7e8c data-v-510f7e8c></path></svg> Cypher Insights
           </div></div> <div class="insights__agent" data-v-510f7e8c><img src="https://titles.trackercdn.com/valorant-api/agents/117ed9e3-49f3-6512-3ccf-0cada7e3823b/displayicon.png" alt="Cypher" class="insights__agent--icon" data-v-510f7e8c> <div class="stat align-left" data-v-2abf40aa data-v-510f7e8c><div class="wrapper" data-v-2abf40aa><!----> <!----> <!----> <div class="numbers" data-v-2abf40aa><span title="Pick Rate" class="name" data-v-2abf40aa>Pick Rate</span> <!----> <span class="value" data-v-2abf40aa>2.4%</span> <!----> <div class="bottom" data-v-2abf40aa><!----> <!----></div></div> <div class="more" data-v-2abf40aa><!----></div></div> <!----></div></div> <div class="insights__heatmap" data-v-510f7e8c><div class="insights__heatmap--header" data-v-510f7e8c><span data-v-510f7e8c>Win Rate</span> 33.7%
           </div> <div class="insights__heatmap--bar" data-v-510f7e8c><div class="insights__heatmap--visible" data-v-510f7e8c></div> <div class="insights__heatmap--hidden" style="--win-rate-value:66.28999999999999%;" data-v-510f7e8c></div></div></div> <div class="insights__stats trn-grid trn-grid--small" data-v-510f7e8c><div class="stat stat align-left" data-v-2abf40aa data-v-510f7e8c><div class="wrapper" data-v-2abf40aa><!----> <!----> <!----> <div class="numbers" data-v-2abf40aa><span title="Kills/Match" class="name" data-v-2abf40aa>Kills/Match</span> <!----> <span class="value" data-v-2abf40aa>15.91</span> <!----> <div class="bottom" data-v-2abf40aa><!----> <!----></div></div> <div class="more" data-v-2abf40aa><!----></div></div> <!----></div> <div class="stat stat align-left" data-v-2abf40aa data-v-510f7e8c><div class="wrapper" data-v-2abf40aa><!----> <!----> <!----> <div class="numbers" data-v-2abf40aa><span title="Deaths/Match" class="name" data-v-2abf40aa>Deaths/Match</span> <!----> <span class="value" data-v-2abf40aa>16.28</span> <!----> <div class="bottom" data-v-2abf40aa><!----> <!----></div></div> <div class="more" data-v-2abf40aa><!----></div></div> <!----></div> <div class="stat stat align-left" data-v-2abf40aa data-v-510f7e8c><div class="wrapper" data-v-2abf40aa><!----> <!----> <!----> <div class="numbers" data-v-2abf40aa><span title="Assists/Match" class="name" data-v-2abf40aa>Assists/Match</span> <!----> <span class="value" data-v-2abf40aa>4.17</span> <!----> <div class="bottom" data-v-2abf40aa><!----> <!----></div></div> <div class="more" data-v-2abf40aa><!----></div></div> <!----></div> <div class="stat stat align-left" data-v-2abf40aa data-v-510f7e8c><div class="wrapper" data-v-2abf40aa><!----> <!----> <!----> <div class="numbers" data-v-2abf40aa><span title="Kill %" class="name" data-v-2abf40aa>Kill %</span> <!----> <span class="value" data-v-2abf40aa>2.5%</span> <!----> <div class="bottom" data-v-2abf40aa><!----> <!----></div></div> <div class="more" data-v-2abf40aa><!----></div></div> <!----></div> <div class="stat stat align-left" data-v-2abf40aa data-v-510f7e8c><div class="wrapper" data-v-2abf40aa><!----> <!----> <!----> <div class="numbers" data-v-2abf40aa><span title="Death %" class="name" data-v-2abf40aa>Death %</span> <!----> <span class="value" data-v-2abf40aa>2.6%</span> <!----> <div class="bottom" data-v-2abf40aa><!----> <!----></div></div> <div class="more" data-v-2abf40aa><!----></div></div> <!----></div> <div class="stat stat align-left" data-v-2abf40aa data-v-510f7e8c><div class="wrapper" data-v-2abf40aa><!----> <!----> <!----> <div class="numbers" data-v-2abf40aa><span title="Assist %" class="name" data-v-2abf40aa>Assist %</span> <!----> <span class="value" data-v-2abf40aa>2.3%</span> <!----> <div class="bottom" data-v-2abf40aa><!----> <!----></div></div> <div class="more" data-v-2abf40aa><!----></div></div> <!----></div> <div class="stat stat align-left" data-v-2abf40aa data-v-510f7e8c><div class="wrapper" data-v-2abf40aa><!----> <!----> <!----> <div class="numbers" data-v-2abf40aa><span title="K/D Ratio" class="name" data-v-2abf40aa>K/D Ratio</span> <!----> <span class="value" data-v-2abf40aa>0.98</span> <!----> <div class="bottom" data-v-2abf40aa><!----> <!----></div></div> <div class="more" data-v-2abf40aa><!----></div></div> <!----></div></div></div></div></div></div> <div class="trn-sticky-content-bottom" data-v-5ba02f11><div class="no-ssr-placeholder"></div></div></main> 
   
-
+          <section class="contenedor-comentarios">
+            <h1>Reseñas</h1>
+            <br>
+            <br>
+            
+            <div class="area-comentar" style="display: block;" >
+                <p id="username"></p>
+                
+                <div  class="inputs-comentarios">
+                    <textarea name="" class="area-comentario" id="areacomentario">  </textarea>
+                    <div class="botones-comentar">
+                        
+                        <button class="boton-enviar"  onclick="addcoment()">
+                            <i class="fas fa-paper-plane"></i>
+                            Comentar
+                        </button>
+                    </div>
+                  </div>
+            </div>
+            <div class="publicacion-realizada" style="display: none;">
+              <div class="usuario-publico">
+                  <div class="contenido-publicacion">
+                      <h4 id="nombrelogeado"></h4>
+                      
+                  </div>
+                  <div class="menu-comentario">
+                      <i class="fas fa-pen"></i>
+                      <ul class="menu">
+                          <li><a onclick="editcomment()">Editar</a></li>
+                          <li><a onclick="deletecomment()">Eliminar</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <p id="comentariologeado"></p>
+              
+              
+          </div>
+          
+          
+                
+            </section>
   <script src="https://trackercdn.com/static-files/trackergg/production/dist/js/vendor/oidc-client-1.11.5.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"75699ee66cec2269","token":"74bbfac95baf4f8f876f5c08d45d8ec3","version":"2022.8.1","si":100}' crossorigin="anonymous"></script>
+<script>
+    
+  let user=document.getElementById("username");
+  
+  
+  
+  function GetLogeado(user){
+     
+    fetch("http://localhost:3000/logeados",{
+      method:"GET", headers:{
+      "Content-Type": "application/json",
+      'Accept': 'application/json'} 
+    }).then(response=>response.json())
+    .then(async data => {
+      //console.log(data);
+      //console.log(data[0].Email);
+      user.innerText=data[0].Email;
+      user.value=data[0].Email;
+    })
+
+  }
+let name=document.getElementsByClassName("agent__name")[0].innerText;
+console.log(name.split(" FOR")[0]+"Y JOACO SE AMAN");
+window.onload = GetLogeado(user);
+
+let loading = false;
+
+
+function GetUserRelated(){
+  console.log(name.split(" FOR")[0])
+ console.log(user.innerText);
+      fetch("http://localhost:3000/miresenia",{
+          method:"POST",
+          headers:{
+              "Content-Type": "application/json",
+              'Accept': 'application/json',
+              },
+              body:JSON.stringify({
+              email: user.innerText,
+              //email:"maria.gomez@gmail.com",
+              name: name.split(" FOR")[0],
+              }),
+          }).then(response=>response.json())
+          .then( (json) => {
+
+              if(json =="No se encontro Resenia"){
+
+              }
+              else{
+                  comentario =document.querySelector(".publicacion-realizada")
+                  comentario.style.display="block"
+                  caja=document.querySelector(".area-comentar")
+                  caja.style.display="none"
+                  usuario=document.getElementById('nombrelogeado')
+                  usuario.innerText=json.Email
+                  comentario=document.getElementById('comentariologeado')
+                  comentario.innerText=json.Comment
+                  console.log(json)
+              }
+          }).catch(err => {
+              console.log(err)
+              
+          });
+      }
+
+
+
+
+
+
+
+
+function GetUsersNotRelated(){
+ console.log(name.split(" FOR")[0])
+ console.log(user.innerText);
+      fetch("http://localhost:3000/allresenias",{
+          method:"POST",
+          headers:{
+              "Content-Type": "application/json",
+              'Accept': 'application/json',
+              },
+              body:JSON.stringify({
+              email: user.innerText,
+              name: name.split(" FOR")[0],
+              }),
+          }).then(response=>response.json())
+          .then( (json) => {
+              for (let i = 0; i < json.length; i++) {
+              const newElement = document.createElement("div");
+              newElement.className="publicacion-realizada";
+              const newElement2 = document.createElement("div");
+              newElement2.className="usuario-publico";
+              const newElement3 = document.createElement("div");
+              newElement3.className="contenido-publicacion";
+              const newElement4 = document.createElement("h4");
+              newElement4.textContent=json[i]['Email'];
+              const newElement11 = document.createElement("p");
+              newElement11.textContent=json[i]['Comment'];
+              newElement3.appendChild(newElement4);
+              newElement2.appendChild(newElement3);
+              newElement.appendChild(newElement2);
+              newElement.appendChild(newElement11);
+              document.querySelector(".contenedor-comentarios").appendChild(newElement);
+          }
+              
+              
+          }).catch(err => {
+              console.log(err)
+          });
+  }
+
+
+  function addcoment(){
+      
+      email=user.innerText
+      let comentario1= document.getElementById('areacomentario');
+      
+      
+
+      fetch("http://localhost:3000/postresenias",{
+          method:"POST",
+          headers:{
+              "Content-Type": "application/json",
+              'Accept': 'application/json',
+              },
+              body:JSON.stringify({
+              name: name.split(" FOR")[0],
+              email: email,
+              comment: comentario1.value,
+              }),
+          }).then(response=>response.json())
+          .then( (json) => {
+              if (json=="Resenia ya registrada"){
+                  console.log("editando")
+                                          fetch("http://localhost:3000/putresenias",{
+                                  method:"PUT",
+                                  headers:{
+                                     "Content-Type": "application/json",
+                                      'Accept': 'application/json',
+                                      },
+                                      body:JSON.stringify({
+                                      name: name.split(" FOR")[0],
+                                      email: email,
+                                      comment: comentario1.value,
+                                      }),
+                                  }).then(response=>response.json())
+                                  .then( (json) => {
+                                      if (json=="Resenia ya registrada"){
+
+                                      }
+                                  }).catch(err => {
+                                      console.log(err)
+                                  });
+
+
+
+
+
+          
+              }
+          }).catch(err => {
+              console.log(err)
+          });
+                  comentario =document.querySelector(".publicacion-realizada")
+                  comentario.style.display="block"
+                  caja=document.querySelector(".area-comentar")
+                  caja.style.display="none"
+                  usuario=document.getElementById('nombrelogeado')
+                  usuario.innerText=email
+                  comentario=document.getElementById('comentariologeado')
+                  comentario.innerText=comentario1.value
+          
+          
+
+          
+          
+
+          
+          
+  }
+
+  function deletecomment(){
+      email=user.innerText
+      console.log("eliminando")
+      console.log(email)
+      console.log(name.split(" FOR")[0])
+
+      
+fetch("http://localhost:3000/deleteresenias",{
+          method:"DELETE",
+          headers:{
+              "Content-Type": "application/json",
+              'Accept': 'application/json',
+              },
+              body:JSON.stringify({
+              name: name.split(" FOR")[0],
+              email: email,
+              }),
+          }).then(response=>response.json())
+          .then( (json) => {
+              console.log(json)
+          }).catch(err => {
+              console.log(err)
+          });
+
+          comentario =document.querySelector(".publicacion-realizada")
+                  comentario.style.display="none"
+                  caja=document.querySelector(".area-comentar")
+                  caja.style.display="block"
+                  let comentario1= document.getElementById('areacomentario');
+                  comentario1.value=""     
+  }
+
+
+  function editcomment(){
+
+
+
+      
+                  comentariologeado=document.getElementById('comentariologeado')
+                  
+
+
+                  comentario =document.querySelector(".publicacion-realizada")
+                  comentario.style.display="none"
+                  caja=document.querySelector(".area-comentar")
+                  caja.style.display="block"
+                  let comentario1= document.getElementById('areacomentario');
+                  comentario1.value=comentariologeado.innerText
+
+
+
+          
+
+             
+  }
+
+  function logout(){
+
+      email=user.innerText
+      fetch("http://localhost:3000/logout",{
+          method:"POST",
+          headers:{
+              "Content-Type": "application/json",
+              'Accept': 'application/json',
+              },
+              body:JSON.stringify({
+              email: email
+              }),
+          }).then(response=>response.json())
+          .then( (json) => {
+              console.log(json)
+              window.location.href="http://localhost:5000/Login.html"  
+              
+          }).catch(err => {
+              console.log(err)
+      });
+
+      
+
+                  
+  }
+      
+
+      
+
+
+
+  
+
+
+//GetUsersNotRelated()
+
+window.setTimeout(GetUserRelated, 300);
+window.setTimeout(GetUsersNotRelated, 400);
+
+
+
+
+</script>
 </body>
 
 </html>
