@@ -4,7 +4,7 @@
 </h1>
 
 <h1 align="center">Vagorant Agent Reviews</h2>
-<h3 align="center">Go and JQuery for High Disponibility Subject</h3>
+<h3 align="center">Go and JQuery Deploy for High Disponibility Subject</h3>
 <h5 align="center">Made by Brian Castro & Joaquín Fernández.</h5>
 
 
