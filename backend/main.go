@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/Joacker/Ayu1/backend/db"
+	"github.com/Joacker/Ayu1/backend/models"
 	"github.com/Joacker/Ayu1/backend/routes"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
@@ -35,7 +37,12 @@ func main() {
 	r.HandleFunc("/miresenia", routes.GetReseniaHandler).Methods("POST")
 	r.HandleFunc("/allresenias", routes.GetAllReseniasHandler).Methods("POST")
 
-	fmt.Println("Hello World 3")
-	http.ListenAndServe(":3000", handlers.CORS(headers, methods, origins)(r))
+	for {
+		db.DBConnection()
+		db.DB.AutoMigrate(models.Agents{}, models.Users{}, models.Resenias{})
+		fmt.Println("Hello World 3")
+		http.ListenAndServe(":3000", handlers.CORS(headers, methods, origins)(r))
+
+	}
 
 }
