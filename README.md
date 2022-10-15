@@ -103,3 +103,17 @@ La ruta en el cliente es aplicada en la siguiente dirección:
 ```sh
 http://localhost:5000/astra.html
 ```
+
+Mi_reseña [POST]:
+
+Ruta usada para traer la resenia del usuario que inicio sesión respecto al agente que haya seleccionado en el menu.
+```sh
+http://localhost:3000/miresenia
+```
+Body, para este caso es necesario tanto atributo de nombre de agente y correo electrónico.
+```json
+{
+	"name":"ASTRA",
+	"email":"pedro2.rodriguez@hotmail.com"
+}
+```
