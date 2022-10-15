@@ -186,4 +186,20 @@ Su response para este caso es el siguiente:
 ```
 La funcionalidad de esta ruta esta aplicada en la ruta de interfaz asociada al agente.
 
-Postresenia [POST]
+Postresenia [POST]:
+
+Ruta para registrar nuevas reseñas del campeón; va a cumplir según el usuario ya haya comentado o no.
+
+```sh
+http://localhost:3000/postresenias
+```
+
+El body debería de contener lo siguiente. . .
+```json
+{
+	"name":"ASTRA",
+	"email":"juan.perez@gmail.com",
+	"comment":"asd"
+}
+```
+
