@@ -8,7 +8,7 @@
 <h5 align="center">Made by Brian Castro & Joaquín Fernández.</h5>
 
 
-[<p align="center"><img src="https://img.shields.io/github/downloads/heym1ke/Assist/total.svg?style=for-the-badge&color=f71d51" alt="Downloads">](https://playvalorant.com/es-mx/?gclid=CjwKCAjwtKmaBhBMEiwAyINuwCqcIVfypKz4Bu7T9y1K0KjUJha_BrYx27ADRc-ay-_mKUHaoGm2FRoCdRAQAvD_BwE&gclsrc=aw.ds) [<img src="https://img.shields.io/github/v/release/heym1ke/Assist?style=for-the-badge&color=f71d51" alt="Latest Release">](https://playvalorant.com/es-mx/specs/)</p>
+[<p align="center"><img src="https://img.shields.io/github/downloads/heym1ke/Assist/total.svg?style=for-the-badge&color=f71d51" alt="Downloads">](https://playvalorant.com/es-mx/) [<img src="https://img.shields.io/github/v/release/heym1ke/Assist?style=for-the-badge&color=f71d51" alt="Specifactions">](https://playvalorant.com/es-mx/specs/)</p>
 
 
 
