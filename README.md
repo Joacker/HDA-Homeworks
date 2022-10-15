@@ -75,3 +75,31 @@ Ruta con datos del back pero ahora cobre una interfaz.
 http://localhost:5000/Login.html
 ```
 
+Logeados [GET]:
+Ruta que trae lista de usuarios con sesión ya iniciada.
+
+```sh
+http://localhost:3000/logeados
+```
+
+Response:
+```json
+[
+	{
+		"ID": 0,
+		"CreatedAt": "0001-01-01T00:00:00Z",
+		"UpdatedAt": "2022-10-15T21:11:43.986303Z",
+		"DeletedAt": null,
+		"Id": 5,
+		"Email": "ana.martinez@hotmail.com",
+		"Password": "1234",
+		"Logged_in": 1
+	}
+]
+```
+
+La ruta en el cliente es aplicada en la siguiente dirección:
+
+```sh
+http://localhost:5000/astra.html
+```
