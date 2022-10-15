@@ -142,4 +142,13 @@ Caso que el usuario ya haya registrado alguna reseña, el response vendría a se
 	"Comment": "Mi main es la mejor del juego nasheee"
 }
 ```
+La ruta de Mi_Resenia también tiene un uso dentro de la interfaz o cliente, mediante al ruta de Astra ya mencionada (http://localhost:5000/astra.html).
+
+All_resenias [POST]:
+
+Ruta usada para traer todas la resenias que no son pertenecientes al usuario pero que pertenecen al mismo Agente el cuál se encuentre situado.
+
+```sh
+http://localhost:3000/allresenias
+```
 
