@@ -7,7 +7,7 @@
 <h3 align="center">Go and JQuery Deploy for High Disponibility Subject</h3>
 <h5 align="center">Made by Brian Castro & Joaquín Fernández.</h5>
 
-[<p align="center"><img src="https://img.shields.io/github/downloads/heym1ke/Assist/total.svg?style=for-the-badge&color=f71d51" alt="Downloads">](https://playvalorant.com/es-mx/)</p>
+[<p align="center"><img src="https://img.shields.io/github/downloads/heym1ke/Assist/total.svg?style=for-the-badge&color=f71d51" alt="Downloads"></p>
 
 
 
