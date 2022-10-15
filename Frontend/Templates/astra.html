@@ -820,12 +820,13 @@ fetch("http://localhost:3000/deleteresenias",{
             }).then(response=>response.json())
             .then( (json) => {
                 console.log(json)
-                window.Location.href="localhost:5000/Login.html"
+                window.location.href="http://localhost:5000/Login.html"  
+                
             }).catch(err => {
                 console.log(err)
         });
 
-           
+        
 
                     
     }
