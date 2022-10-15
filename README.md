@@ -184,3 +184,6 @@ Su response para este caso es el siguiente:
 	}
 ]
 ```
+La funcionalidad de esta ruta esta aplicada en la ruta de interfaz asociada al agente.
+
+Postresenia [POST]
