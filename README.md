@@ -38,3 +38,40 @@ docker volume rm $(docker volume ls -q)
 ```
 
 ---
+<h2 align="center">Rutas usadas:</h5>
+
+LOGIN [POST]:
+
+Ruta que trae los datos del usuario.
+```sh
+http://localhost:3000/users3
+```
+
+Body:
+```JSON
+{
+	"email":"ana.martinez@hotmail.com",
+	"password":"1234"
+}
+```
+
+Response:
+```json 
+{
+	"ID": 0,
+	"CreatedAt": "0001-01-01T00:00:00Z",
+	"UpdatedAt": "2022-10-10T18:03:36.953056811Z",
+	"DeletedAt": null,
+	"Id": 5,
+	"Email": "ana.martinez@hotmail.com",
+	"Password": "1234",
+	"Logged_in": 1
+}
+```
+
+Ruta con datos del back pero ahora cobre una interfaz.
+
+```sh
+http://localhost:5000/Login.html
+```
+
