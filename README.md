@@ -264,3 +264,11 @@ Y el response devolvería lo siguiente:
 ```
 De igual forma cabe hacer mención de que como se está trabajando con Go, no borra o actualiza directamente los datos de las tablas, más bien cambia unos estados de nombre "UpdatedAt" y "DeletedAt".
 
+---
+
+<h3 align="center">Referencias y material de apoyo</h3>
+
+## *Multi-Stage:*
+[![Alt text](https://d1.awsstatic.com/acs/characters/Logos/Docker-Logo_Horizontel_279x131.b8a5c41e56b77706656d61080f6a0217a3ba356d.png)](https://www.youtube.com/watch?v=62r32R75iZs)
+## *Golang:*
+[![Alt text](https://www.algoworks.com/wp-content/uploads/2020/11/golang-development-company.png)](https://www.youtube.com/watch?v=B6gQ1B0cn4s)
