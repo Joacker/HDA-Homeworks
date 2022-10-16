@@ -272,3 +272,6 @@ De igual forma cabe hacer mención de que como se está trabajando con Go, no bo
 [![Alt text](https://d1.awsstatic.com/acs/characters/Logos/Docker-Logo_Horizontel_279x131.b8a5c41e56b77706656d61080f6a0217a3ba356d.png)](https://www.youtube.com/watch?v=62r32R75iZs)
 ## *Golang:*
 [![Alt text](https://www.algoworks.com/wp-content/uploads/2020/11/golang-development-company.png)](https://www.youtube.com/watch?v=B6gQ1B0cn4s)
+
+## *Golang:*
+[![Alt text](https://nitter.net/pic/media%2FE3xxK80WYAA8Jec.jpg)](https://www.youtube.com/watch?v=NkHg598tYmI)
