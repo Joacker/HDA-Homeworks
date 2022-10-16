@@ -278,4 +278,7 @@ De igual forma cabe hacer mención de que como se está trabajando con Go, no bo
 <h3 align="center">Video solicitado por la actividad</h3>
 
 ## *Video:*
+
+Se recomienda para una mejor visualización, colocar la opción de calidad y dar click en 1080p60.
+
 [![Alt text](https://nitter.net/pic/media%2FE3xxK80WYAA8Jec.jpg)](https://www.youtube.com/watch?v=NkHg598tYmI)
