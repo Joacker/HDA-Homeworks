@@ -4,7 +4,7 @@
 </h1>
 
 <h1 align="center">CRUD Vagorant Agent Reviews</h2>
-<h3 align="center">Docker, Go and JQuery Deploy for High Disponibility Subject</h3>
+<h3 align="center">Docker, Postgres, Go and JQuery Deploy for High Disponibility Subject</h3>
 <h5 align="center">Made by Brian Castro & Joaquín Fernández.</h5>
 
 <p align="center"><img src="https://img.shields.io/github/downloads/heym1ke/Assist/total.svg?style=for-the-badge&color=f71d51" alt="Downloads"></p>
@@ -264,3 +264,14 @@ Y el response devolvería lo siguiente:
 ```
 De igual forma cabe hacer mención de que como se está trabajando con Go, no borra o actualiza directamente los datos de las tablas, más bien cambia unos estados de nombre "UpdatedAt" y "DeletedAt".
 
+---
+
+<h3 align="center">Referencias y material de apoyo</h3>
+
+## *Multi-Stage:*
+[![Alt text](https://d1.awsstatic.com/acs/characters/Logos/Docker-Logo_Horizontel_279x131.b8a5c41e56b77706656d61080f6a0217a3ba356d.png)](https://www.youtube.com/watch?v=62r32R75iZs)
+## *Golang:*
+[![Alt text](https://www.algoworks.com/wp-content/uploads/2020/11/golang-development-company.png)](https://www.youtube.com/watch?v=B6gQ1B0cn4s)
+
+## *Video:*
+[![Alt text](https://nitter.net/pic/media%2FE3xxK80WYAA8Jec.jpg)](https://www.youtube.com/watch?v=NkHg598tYmI)
