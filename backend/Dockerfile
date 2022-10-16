@@ -13,8 +13,10 @@ RUN go mod tidy
 RUN go build -o main main.go
 EXPOSE 3000
 
-FROM frolvlad/alpine-glibc
+FROM alpine:latest
+
+WORKDIR /backend
+
 COPY --from=builder /backend .
 
-
-CMD [ "./main" ]
+CMD ["./main"]
