@@ -12,6 +12,7 @@ services:
     env_file:
         - db.env
     volumes:
+    # Aquí se monta el volumen de la carpeta del proyecto orientado a la topología
         - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
         - "5433:5432"
@@ -22,7 +23,6 @@ services:
     build: ./backend
     restart: always
     volumes:
-    # Aquí se monta el volumen de la carpeta del proyecto orientado a la topología
       - ./backend:/app/backend
     ports:
         - "3000:3000"
