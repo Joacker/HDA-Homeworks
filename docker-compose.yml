@@ -22,6 +22,7 @@ services:
     build: ./backend
     restart: always
     volumes:
+    # Aquí se monta el volumen de la carpeta del proyecto orientado a la topología
       - ./backend:/app/backend
     ports:
         - "3000:3000"

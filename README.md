@@ -16,6 +16,27 @@
   <a href="https://playvalorant.com/es-mx/?gclid=CjwKCAjwtKmaBhBMEiwAyINuwCqcIVfypKz4Bu7T9y1K0KjUJha_BrYx27ADRc-ay-_mKUHaoGm2FRoCdRAQAvD_BwE&gclsrc=aw.ds"><img src="https://download.zone/wp-content/uploads/2020/10/Valorant-Game-Download.png" ></a>
 </p>
 
+### 🛠 Contruído con:
+
+* [Golang](https://go.dev)
+* [Jquery](https://jquery.com)
+* [Postgres](https://www.postgresql.org)
+* [Apache](https://httpd.apache.org/docs/2.4/howto/http2.html)
+* [Docker](https://www.docker.com)
+
+### 🐳 Imágenes utilizadas de dockerhub:
+
+* [Golang](https://hub.docker.com/_/golang)
+* [Alpine](https://hub.docker.com/_/alpine)
+* [Postgres](https://hub.docker.com/r/bitnami/postgresql)
+* [Apache](https://hub.docker.com/_/httpd)
+* [Nginx](https://hub.docker.com/_/nginx)
+
+Clonar repositorio:
+```sh
+git clone https://github.com/Joacker/Vagorant-Agent-Reviews.git
+```
+
 Para levantar las instancias dentro de la topología.
 
 ```sh
@@ -36,6 +57,8 @@ Borrar cache en volumenes
 ```sh
 docker volume rm $(docker volume ls -q)
 ```
+
+Recordar que no se integró algo como JWT por lo que esta aplicación funciona para el inicio de sesión de un usuario; sino las funcionalidades se ven perjudicadas favor de cuando termine de usar la aplicación cerrar sesión, es decir, de click en logout.
 
 ---
 <h2 align="center">Rutas usadas:</h5>
