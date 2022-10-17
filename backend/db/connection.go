@@ -24,7 +24,6 @@ func DBConnection() {
 	port := os.Getenv("POSTGRESQL_PORT")
 	dbname := os.Getenv("POSTGRESQL_DATABASE")
 	var DSN = "host" + "=" + host + " user" + "=" + user + " dbname" + "=" + dbname + " password" + "=" + password + " sslmode=disable" + " port" + "=" + port + " TimeZone=America/Santiago"
-	//var DSN = "host=postgres user=postgres password=postgres dbname=tarea1 port=5432 sslmode=disable TimeZone=America/Santiago"
 	var error error
 	DB, error = gorm.Open(postgres.Open(DSN), &gorm.Config{})
 	if error != nil {
