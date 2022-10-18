@@ -1,2 +1,4 @@
 backend/tmp
 backend/.air.toml
+db.env
+backend/.env
